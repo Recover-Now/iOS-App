@@ -9,7 +9,7 @@
 #ifndef Constants_h
 #define Constants_h
 
-#define kUserDefaultsUserKey                @"RNUserDefaultsUserKey"
+#define kUserDefaultsLocationKey @"RNUserDefaultsLocationKey"
 
 #define kFirebaseEntityRNUser               @"RNUser"
 #define kFirebaseEntityRNUserResourceList   @"RNUserResourceList"
