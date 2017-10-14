@@ -25,6 +25,7 @@
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.placeholder = @"Resources & recovery areas";
     self.searchController.searchResultsUpdater = self;
+    self.searchController.searchBar.tintColor = [UIColor colorNamed:@"MainTint"];
     
     //UISearchBar* searchBar = (UISearchBar*) self.tableView.tableHeaderView;
     if (@available(iOS 11.0, *)) {

@@ -239,7 +239,7 @@
                                                     </view>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-Us-JJe">
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOc-Us-JJe" userLabel="Effect View">
                                                     <rect key="frame" x="120" y="132" width="25" height="25"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CWL-t8-ceA">
                                                         <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -252,7 +252,7 @@
                                                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bik-bP-rhM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xK8-Mu-g5h">
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="xK8-Mu-g5h">
                                                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </view>
@@ -279,23 +279,22 @@
                                                     </constraints>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ1-9J-xuN">
-                                                    <rect key="frame" x="8" y="154" width="28.5" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIST" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wD3-n5-utX">
+                                                    <rect key="frame" x="78.5" y="136.5" width="29.5" height="16"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="xK8-Mu-g5h" firstAttribute="leading" secondItem="XQ1-9J-xuN" secondAttribute="trailing" constant="8" id="5Pl-11-N5Y"/>
                                                 <constraint firstItem="BLh-g0-HdA" firstAttribute="leading" secondItem="Og0-PT-M22" secondAttribute="leading" id="5yG-OD-XrK"/>
                                                 <constraint firstItem="lKZ-ny-NXY" firstAttribute="height" secondItem="Og0-PT-M22" secondAttribute="height" multiplier="0.3" id="9kt-wU-nzG"/>
+                                                <constraint firstItem="wD3-n5-utX" firstAttribute="centerY" secondItem="zOc-Us-JJe" secondAttribute="centerY" id="HAk-ZK-rGa"/>
                                                 <constraint firstAttribute="trailing" secondItem="lKZ-ny-NXY" secondAttribute="trailing" id="Ihf-a4-WwJ"/>
-                                                <constraint firstItem="XQ1-9J-xuN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Og0-PT-M22" secondAttribute="leading" constant="8" id="IjK-EE-b1N"/>
                                                 <constraint firstItem="lKZ-ny-NXY" firstAttribute="top" secondItem="Og0-PT-M22" secondAttribute="top" id="RQt-8G-yCg"/>
                                                 <constraint firstAttribute="trailing" secondItem="BLh-g0-HdA" secondAttribute="trailing" id="cJu-0D-kOl"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="XQ1-9J-xuN" secondAttribute="bottom" constant="8" id="g7G-17-dXb"/>
+                                                <constraint firstItem="zOc-Us-JJe" firstAttribute="leading" secondItem="wD3-n5-utX" secondAttribute="trailing" constant="12" id="dLH-GP-d02"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zOc-Us-JJe" secondAttribute="trailing" constant="5" id="ixa-q6-KOp"/>
                                                 <constraint firstAttribute="bottom" secondItem="BLh-g0-HdA" secondAttribute="bottom" id="ncN-W1-aBY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zOc-Us-JJe" secondAttribute="bottom" constant="5" id="uWc-qg-hKu"/>
@@ -545,10 +544,15 @@
                     <navigationItem key="navigationItem" title="Search" id="3Xk-1W-W6R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhE-dn-6Sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Resources &amp; recovery areas" id="0mf-Cr-Ka8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Resources &amp; recovery areas" showsSearchResultsButton="YES" showsCancelButton="YES" showsScopeBar="YES" id="0mf-Cr-Ka8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="0.92127382759999998" green="0.26919800040000003" blue="0.35286825900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
                     <connections>
                         <outlet property="delegate" destination="8We-T0-Vgf" id="Da1-mF-0JC"/>
                     </connections>
