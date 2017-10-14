@@ -24,7 +24,7 @@
 
 @implementation ResourcesCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"resourceCell";
 bool requestingLocation = false;
 
 - (void)viewDidLoad {
@@ -39,7 +39,7 @@ bool requestingLocation = false;
         }
     }];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[ResourceCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
@@ -115,7 +115,7 @@ bool requestingLocation = false;
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ResourceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ResourceCollectionViewCell *cell = (ResourceCollectionViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     [cell decorateForResource:[self.resources objectAtIndex:indexPath.row]];
