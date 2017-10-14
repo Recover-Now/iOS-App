@@ -12,6 +12,7 @@
 @implementation ResourceCollectionViewCell
 
 - (void) decorateForResource: (RNResource*) resource {
+    NSLog(@"Decorating resource with %@", resource.title);
     self.typeLabel.text = resource.categoryDescription;
     self.imageView.image = [UIImage imageNamed:@"Water"];
     

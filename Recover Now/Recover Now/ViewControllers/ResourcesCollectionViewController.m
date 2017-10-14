@@ -39,7 +39,6 @@ bool requestingLocation = false;
         }
     }];
     
-    [self.collectionView registerClass:[ResourceCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
