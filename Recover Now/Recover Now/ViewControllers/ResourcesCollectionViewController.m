@@ -43,12 +43,15 @@ bool requestingLocation = false;
     
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
         && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
-        NSLog(@"Requesting");
         requestingLocation = true;
         [[LocationManager locationManager] requestWhenInUseAuthorization];
     }
     
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] init];
+    [self.activityIndicator setColor:MAIN_COLOR];
+    [self.view addSubview:self.activityIndicator];
+    self.activityIndicator.center = self.view.center;
     [self.activityIndicator setHidesWhenStopped:true];
     
     
@@ -67,6 +70,7 @@ bool requestingLocation = false;
                 });
             }];
         }];
+        
     }
 }
 
@@ -75,7 +79,7 @@ bool requestingLocation = false;
     LocationManager.locationManager.delegate = self;
     CLLocation* userLocation = [LocationManager currentUserLocation];
     if (!userLocation && !requestingLocation) {
-        [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
+        //[self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
     }
 }
 

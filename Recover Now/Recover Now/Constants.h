@@ -19,6 +19,9 @@
 
 #define IS_LOGGED_IN ([[NSUserDefaults standardUserDefaults] objectForKey:@"TPUDkUserIdenfitier"] != nil)
 
+#define MAIN_COLOR RGB(1.0, 0.177, 0.334)
+#define RGB(r, g, b) [UIColor colorWithRed:(r) green:(g) blue:(b) alpha:1.0]
+
 /*
  *  System Versioning Preprocessor Macros
  */

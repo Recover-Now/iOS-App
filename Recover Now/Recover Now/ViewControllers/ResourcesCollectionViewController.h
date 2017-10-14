@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray<RNResource*>* resources;
 
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
+@property (nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 
 @property (nonatomic, strong) IBOutlet UIImageView* profileImageView;
 
