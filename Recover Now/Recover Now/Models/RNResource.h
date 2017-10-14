@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, RNResourceCategory) {
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* content;
 @property (nonatomic, strong) RNUser* poster;
-@property (nonatomic) RNResourceCategory category;
+@property (nonatomic) NSInteger category;
+
+-(NSString *)categoryDescription;
 
 @end

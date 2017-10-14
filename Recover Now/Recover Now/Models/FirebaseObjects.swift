@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 extension RNLocation {
     override var dictionaryForm: [String: Any] {
-        return self.dictionaryWithValues(forKeys: ["title", "shortTitle", "paid", "openType", "longitude", "latitude", "locationType", "hours", "geoType", "geofenceRadius", "affiliationCode"])
+        return self.dictionaryWithValues(forKeys: ["email, firstName, lastName"])
     }
 }
 

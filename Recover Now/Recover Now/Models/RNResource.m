@@ -12,4 +12,26 @@
 
 @synthesize title, content, poster, category;
 
+-(NSString *)categoryDescription {
+    switch (self.category) {
+        case RNResourceCategoryHousing:
+            return @"Housing"
+            break;
+        case RNResourceCategoryRides:
+            return @"Ride Sharing"
+            break;
+        case RNResourceCategoryClothing:
+            return @"Clothing"
+            break;
+        case RNResourceCategoryMedicine:
+            return @"Medicine"
+            break;
+        case RNResourceCategoryFoodWater:
+            return @"Food & Water"
+            break;
+        default:
+            break;
+    }
+}
+
 @end
