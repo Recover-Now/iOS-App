@@ -57,12 +57,12 @@ bool requestingLocation = false;
     if ([LocationManager currentUserLocation] || true) {
         [self.activityIndicator startAnimating];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
-            NSLog(@"Reloading collectionView");
-            [self.collectionView reloadData];
-            [self.activityIndicator stopAnimating];
-        });
+//        dispatch_async(dispatch_queue_create("myNewQueue", nil)(), ^{
+//            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
+//            NSLog(@"Reloading collectionView");
+//            [self.collectionView reloadData];
+//            [self.activityIndicator stopAnimating];
+//        });
     }
 }
 
