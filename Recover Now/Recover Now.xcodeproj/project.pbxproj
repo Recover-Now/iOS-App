@@ -32,6 +32,7 @@
 		AF3091321F91C33800FFEF97 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091311F91C33800FFEF97 /* SearchTableViewController.m */; };
 		AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */; };
 		AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091371F91C91500FFEF97 /* ContributeViewController.m */; };
+		AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AA1F924B6D0097AE67 /* LoadData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		AF3091371F91C91500FFEF97 /* ContributeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContributeViewController.m; sourceTree = "<group>"; };
 		AF3091391F91D47B00FFEF97 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AFCD55A81F9245EE0097AE67 /* Recover_Now-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover_Now-Prefix.pch"; sourceTree = "<group>"; };
+		AFCD55A91F924B6D0097AE67 /* LoadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
+		AFCD55AA1F924B6D0097AE67 /* LoadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 			children = (
 				91DBE8C61F923B580024EC05 /* LocationManager.h */,
 				91DBE8C71F923B580024EC05 /* LocationManager.m */,
+				AFCD55A91F924B6D0097AE67 /* LoadData.h */,
+				AFCD55AA1F924B6D0097AE67 /* LoadData.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				91A63BDD1F91CED100D870B9 /* FirebaseService.swift in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
 				91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */,
+				AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */,
 				AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */,
 				91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */,
 				AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */,

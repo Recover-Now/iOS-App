@@ -7,6 +7,8 @@
 //
 
 #import "SearchTableViewController.h"
+#import "LoadData.h"
+#import "Recover_Now-Swift.h"
 
 @interface SearchTableViewController ()
 
@@ -22,6 +24,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.resources = [[NSMutableArray<RNResource*> alloc] init];
+    self.results = [[NSMutableArray<RNResource*> alloc] init];
+    [self.activityIndicator setHidesWhenStopped:true];
+    [self.activityIndicator startAnimating];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.resources = [[LoadData retrieveResourcesForLocation:[Accounts userLocation]] mutableCopy];
+        [self.tableView reloadData];
+        [self.activityIndicator stopAnimating];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,58 +51,14 @@
     return self.results.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self.results removeAllObjects];
+    for (RNResource* res in self.resources) {
+        if ([res.title containsString:searchText] || [res.content containsString:searchText]) {
+            [self.results addObject:res];
+        }
+    }
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
