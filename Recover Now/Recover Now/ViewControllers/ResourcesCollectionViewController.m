@@ -56,13 +56,18 @@ bool requestingLocation = false;
     
     if ([LocationManager currentUserLocation] || true) {
         [self.activityIndicator startAnimating];
-
-//        dispatch_async(dispatch_queue_create("myNewQueue", nil)(), ^{
-//            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
-//            NSLog(@"Reloading collectionView");
-//            [self.collectionView reloadData];
-//            [self.activityIndicator stopAnimating];
-//        });
+        
+        [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
+            [self.resources addObjectsFromArray:res];
+            [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
+                [self.resources addObjectsFromArray:res];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"Reloading collectionView");
+                    [self.collectionView reloadData];
+                    [self.activityIndicator stopAnimating];
+                });
+            }];
+        }];
     }
 }
 
@@ -82,12 +87,17 @@ bool requestingLocation = false;
         
         CLLocation* userLocation = [LocationManager currentUserLocation];
         if (!userLocation) { return; }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
-            NSLog(@"Reloading collectionView");
-            [self.collectionView reloadData];
-            [self.activityIndicator stopAnimating];
-        });
+        [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
+            [self.resources addObjectsFromArray:res];
+            [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
+                [self.resources addObjectsFromArray:res];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"Reloading collectionView");
+                    [self.collectionView reloadData];
+                    [self.activityIndicator stopAnimating];
+                });
+            }];
+        }];
     }
 }
 
