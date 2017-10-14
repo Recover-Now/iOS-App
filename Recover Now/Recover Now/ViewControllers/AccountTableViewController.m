@@ -8,6 +8,9 @@
 
 #import "AccountTableViewController.h"
 #import "Recover_Now-Swift.h"
+#import "LocationManager.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
+#import "ResourcesCollectionViewController.h"
 
 @interface AccountTableViewController ()
 
@@ -28,12 +31,20 @@
     self.emailLabel.text = [Accounts userEmail];
     self.imageView.image = [Accounts userImage];
     
-    //ADD self.location.text handling for label!!!!!!!!!!!!!!!!!!!!!!1
+    NSString* currentLocation = [LocationManager currentUserLocation];
+    if (currentLocation) {
+        NSArray* parts = [currentLocation componentsSeparatedByString:@"-"];
+        self.location.text = [NSString stringWithFormat:@"%@, %@", parts[2], parts[1]];
+    } else {
+        self.location.text = @"Unknown";
+    }
 
     if ([Accounts userInNeed]) {
         self.inNeedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.safeAndSoundCell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         self.safeAndSoundCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        self.inNeedCell.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 
@@ -41,24 +52,39 @@
     [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
 }
 
-- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return indexPath.section >= 2;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Selected row");
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     if (indexPath.section == 3) {
-        [[Accounts shared] logoutWithCompletion:^(NSError* error){}];
-        Accounts.userIdentifier = nil;
-        Accounts.userImageData = nil;
-        
-        //UI CHANGE
-        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Confirm Sign Out" message:@"Are you sure you want to sign out?" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [[Accounts shared] logoutWithCompletion:^(NSError* error){
+                Accounts.userIdentifier = nil;
+                Accounts.userImageData = nil;
+                UIStoryboard* loginStoryboard = [UIStoryboard storyboardWithName:@"Login" bundle:NSBundle.mainBundle];
+                UIApplication.sharedApplication.keyWindow.rootViewController = [loginStoryboard instantiateInitialViewController];
+            }];
+        }]];
+        [self presentViewController:alert animated:true completion:nil];
     } else if (indexPath.section == 2) {
         UITableViewCell* currentCell = indexPath.row == 0 ? self.safeAndSoundCell : self.inNeedCell;
         UITableViewCell* otherCell = indexPath.row != 0 ? self.safeAndSoundCell : self.inNeedCell;
         currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
         otherCell.accessoryType = UITableViewCellAccessoryNone;
+        
+        if (indexPath.row == 1) {
+            FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNUser];
+            [[[fbService.reference child:Accounts.userIdentifier] child:@"helpRequest"] setValue:@(NSTimeIntervalSince1970 * 1000)];
+            [Accounts setUserInNeed:true];
+        } else {
+            [Accounts setUserInNeed:false];
+        }
+        
     }
 }
 

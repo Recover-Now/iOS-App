@@ -85,6 +85,18 @@ bool requestingLocation = false;
     self.topBar.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:self.topBar];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    CollectionReusableView* header = (CollectionReusableView*)[self.collectionView supplementaryViewForElementKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (Accounts.userInNeed) {
+        header.profileImageView.layer.borderColor = MAIN_COLOR.CGColor;
+        header.profileImageView.layer.borderWidth = 1.0f;
+    } else {
+        header.profileImageView.layer.borderWidth = 0.0f;
+    }
+}
      
  -(void) orientationDidChange {
      [self.collectionViewLayout invalidateLayout];
@@ -128,7 +140,6 @@ bool requestingLocation = false;
 #pragma mark <CLLocationManagerDelegate>
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    NSLog(@"Location update!");
     CLLocation* loc = locations[0];
     [LocationManager addressForLocation:loc withCompletion:^(NSDictionary<NSString *,id> * _Nullable data, NSError * _Nullable error) {
         if (error) {
@@ -188,6 +199,12 @@ bool requestingLocation = false;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     CollectionReusableView* reusable = (CollectionReusableView*) [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
     reusable.profileImageView.image = Accounts.userImage;
+    if (Accounts.userInNeed) {
+        reusable.profileImageView.layer.borderColor = MAIN_COLOR.CGColor;
+        reusable.profileImageView.layer.borderWidth = 1.0f;
+    } else {
+        reusable.profileImageView.layer.borderWidth = 0.0f;
+    }
     return reusable;
 }
 
@@ -213,8 +230,6 @@ bool requestingLocation = false;
     CGFloat spacing = [self spacingForCells];
     CGFloat height = self.collectionView.frame.size.height;
     CGFloat width = self.collectionView.frame.size.width;
-    NSLog(@"Height: %f", height);
-    NSLog(@"Width: %f", width);
     
     UIEdgeInsets insets = self.collectionView.contentInset;
 //    if (@available(iOS 11.0, *)) {
@@ -223,10 +238,8 @@ bool requestingLocation = false;
 //    }
 
     int numberOfCellsInRow = (int) width / 150;
-    NSLog(@"NumCells: %i", numberOfCellsInRow);
     CGFloat availableWidth = width - ((numberOfCellsInRow - 1) * spacing) - 15.0 - insets.left - insets.right;
     CGFloat singleCellWidth = availableWidth / ((CGFloat) numberOfCellsInRow);
-    NSLog(@"SingleCellWidth: %f", singleCellWidth);
     CGFloat singleCellHeight = singleCellWidth * 1.3;
     return CGSizeMake(singleCellWidth, singleCellHeight);
 }

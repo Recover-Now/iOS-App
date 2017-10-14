@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RNUser.h"
+#import "CDCircularImageView.h"
 
 @interface AccountTableViewController : UITableViewController
 
@@ -16,7 +17,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* location;
 @property (nonatomic, strong) IBOutlet UITableViewCell* safeAndSoundCell;
 @property (nonatomic, strong) IBOutlet UITableViewCell* inNeedCell;
-@property (nonatomic, strong) IBOutlet UIImageView* imageView;
+@property (nonatomic, strong) IBOutlet CDCircularImageView* imageView;
 
 - (IBAction)onDoneButtonPress:(id)sender;
 
