@@ -17,6 +17,10 @@
     FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
     [fbService retrieveListForIdentifier:[NSString stringWithFormat:@"%@/resources", location] completion:^(NSDictionary<NSString *,id> * _Nonnull data) {
         NSLog(@"Callback 1 null=%i", data == nil);
+        if (data.allKeys.count == 0) {
+            completion(resources);
+            return;
+        }
         for (NSString* key in data.allKeys) {
             NSLog(@"Found resource identifier");
             FirebaseService* fbService2 = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNResource];
@@ -37,6 +41,10 @@
     FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
     [fbService retrieveListForIdentifier:[NSString stringWithFormat:@"%@/resources", location] completion:^(NSDictionary<NSString *,id> * _Nonnull data) {
         NSLog(@"Callback 1 null=%i", data == nil);
+        if (data.allKeys.count == 0) {
+            completion(resources);
+            return;
+        }
         for (NSString* key in data.allKeys) {
             NSLog(@"Found resource identifier");
             FirebaseService* fbService2 = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNResource];

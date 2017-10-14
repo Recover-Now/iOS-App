@@ -41,7 +41,7 @@ bool requestingLocation = false;
     }];
     
     
-    
+    LocationManager.locationManager.delegate = self;
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
         && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
         requestingLocation = true;
@@ -55,53 +55,79 @@ bool requestingLocation = false;
     self.activityIndicator.center = self.view.center;
     [self.activityIndicator setHidesWhenStopped:true];
     
+    NSString* currentLocation = [LocationManager currentUserLocation];
+    if (currentLocation) {
+        [self loadData:currentLocation];
+    } else {
+        NSLog(@"No location on load, showing no data state");
+        [self.activityIndicator setHidden:true];
+        [self showNoDataState];
+    }
+}
+
+- (void)showNoDataState {
     
+}
+
+- (void)hideNoDataState {
     
-    if ([LocationManager currentUserLocation] || true) {
-        [self.activityIndicator startAnimating];
-        
-        [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
+}
+
+- (void)loadData:(NSString*) location {
+    [self.activityIndicator startAnimating];
+    
+    [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
+        [self.resources addObjectsFromArray:res];
+        [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
             [self.resources addObjectsFromArray:res];
-            [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
-                [self.resources addObjectsFromArray:res];
+            if (self.resources.count == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Reloading collectionView");
+                    [self.activityIndicator stopAnimating];
+                    [self showNoDataState];
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self hideNoDataState];
                     [self.collectionView reloadData];
                     [self.activityIndicator stopAnimating];
                 });
-            }];
+            }
         }];
-        
-    }
+    }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    LocationManager.locationManager.delegate = self;
-    CLLocation* userLocation = [LocationManager currentUserLocation];
-    if (!userLocation && !requestingLocation) {
-        //[self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
-    }
-}
+#pragma mark <CLLocationManagerDelegate>
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@"Location update!");
+    CLLocation* loc = locations[0];
+    [LocationManager addressForLocation:loc withCompletion:^(NSDictionary<NSString *,id> * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error during geocoding: %@", error);
+            return;
+        }
+        NSString* identifier = [NSString stringWithFormat:@"%@-%@-%@", [data objectForKey:@"CountryCode"], [data objectForKey:@"State"], [data objectForKey:@"City"]];
+        bool shouldReload = ![[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsLocationKey] isEqualToString:identifier];
+        [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:kUserDefaultsLocationKey];
+        if (shouldReload) {
+            NSLog(@"Reloading data with new location of %@", identifier);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator setHidden:FALSE];
+                [self.activityIndicator startAnimating];
+                [self loadData:identifier];
+            });
+        }
+    }];
+}
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSLog(@"%@", error);
+}
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         [self.activityIndicator startAnimating];
         
-        CLLocation* userLocation = [LocationManager currentUserLocation];
-        if (!userLocation) { return; }
-        [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
-            [self.resources addObjectsFromArray:res];
-            [LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta" withCompletion:^(NSArray<RNResource *> * res) {
-                [self.resources addObjectsFromArray:res];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Reloading collectionView");
-                    [self.collectionView reloadData];
-                    [self.activityIndicator stopAnimating];
-                });
-            }];
-        }];
+        [LocationManager currentUserLocation];
     }
 }
 

@@ -21,8 +21,12 @@ static CLLocationManager* locationManager;
     return locationManager;
 }
 
-+ (CLLocation *) currentUserLocation {
-    return locationManager.location;
++ (NSString *) currentUserLocation {
+    [locationManager requestLocation];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsLocationKey]) {
+        return [[NSUserDefaults standardUserDefaults] stringForKey:kUserDefaultsLocationKey];
+    }
+    return nil;
 }
 
 + (void) addressForLocation: (CLLocation*) location withCompletion: (void (^) (NSDictionary<NSString*, id>* _Nullable, NSError*)) completion {
