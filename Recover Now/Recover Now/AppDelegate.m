@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RNUser.h"
+#import "Constants.h"
 @import Firebase;
 
 @interface AppDelegate ()

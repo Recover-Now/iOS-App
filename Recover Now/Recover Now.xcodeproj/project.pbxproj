@@ -78,6 +78,7 @@
 		AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		AF3091361F91C91500FFEF97 /* ContributeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContributeViewController.h; sourceTree = "<group>"; };
 		AF3091371F91C91500FFEF97 /* ContributeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContributeViewController.m; sourceTree = "<group>"; };
+		AF3091391F91D47B00FFEF97 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +137,7 @@
 				91B0FD8F1F91AD74001ED35C /* main.m */,
 				AF3091261F91C01F00FFEF97 /* FirebaseHandler.h */,
 				AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */,
+				AF3091391F91D47B00FFEF97 /* Constants.h */,
 			);
 			path = "Recover Now";
 			sourceTree = "<group>";

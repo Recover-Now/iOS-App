@@ -10,16 +10,6 @@
 
 @implementation RNUser
 
-@synthesize email, firstName, lastName, resources, imageData;
-
-static RNUser* currentUser;
-
-+ (RNUser*)currentUser {
-    return currentUser;
-}
-
-+ (void)setCurrentUser:(RNUser*)user {
-    currentUser = user;
-}
+@synthesize email, firstName, lastName, imageData, resourceListIdentifier, locationIdentifier, inNeed;
 
 @end

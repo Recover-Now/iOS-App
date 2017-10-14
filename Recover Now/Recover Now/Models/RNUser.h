@@ -14,7 +14,9 @@
 @property (strong, nonatomic) NSString* email;
 @property (strong, nonatomic) NSString* firstName;
 @property (strong, nonatomic) NSString* lastName;
-@property (strong, nonatomic) NSArray<RNResource*>* resources;
+@property (strong, nonatomic) NSString* resourceListIdentifier;
+@property (strong, nonatomic) NSString* locationIdentifier;
+@property (nonatomic) bool inNeed;
 @property (strong, nonatomic) NSData* imageData;
 
 @end
