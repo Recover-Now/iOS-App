@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) RNResource* resource;
 
+-(IBAction)onDonePressed: (id)sender;
+
 @end

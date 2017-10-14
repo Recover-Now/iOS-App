@@ -24,4 +24,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(IBAction)onDonePressed: (id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
 @end

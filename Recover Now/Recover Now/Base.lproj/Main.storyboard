@@ -9,7 +9,9 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -157,6 +159,9 @@
                     <navigationItem key="navigationItem" title="My Account" id="BoB-Qu-nkf">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="wtw-cU-es6">
                             <color key="tintColor" red="0.92127382759999998" green="0.26919800040000003" blue="0.35286825900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="onDoneButtonPress:" destination="EWU-rs-age" id="t45-HV-WUg"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -323,6 +328,10 @@
                                 <connections>
                                     <outlet property="imageView" destination="BLh-g0-HdA" id="pbk-5t-Vqw"/>
                                     <outlet property="typeLabel" destination="4B8-8o-7ZA" id="9RQ-0y-UmC"/>
+                                    <segue destination="3kS-K4-ciq" kind="presentation" modalPresentationStyle="pageSheet" id="V6b-fZ-mNQ">
+                                        <segue key="commit" inheritsFrom="parent" id="MFg-Ld-ZwA"/>
+                                        <segue key="preview" inheritsFrom="commit" id="2bo-bY-f8C"/>
+                                    </segue>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -336,14 +345,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5" customClass="CDCircularImageView">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5" customClass="CDCircularImageView">
                                     <rect key="frame" x="332" y="38.5" width="35" height="35"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="0V4-E1-xil"/>
                                         <constraint firstAttribute="width" constant="35" id="J12-uu-Neu"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17.5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="ao9-Kt-8O0" appends="YES" id="CkC-vs-Llj"/>
                                     </connections>
@@ -352,7 +365,7 @@
                                     <rect key="frame" x="8" y="82" width="359" height="1"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="1" id="Njc-eP-h0c"/>
+                                        <constraint firstAttribute="height" constant="0.29999999999999999" id="Njc-eP-h0c"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -382,13 +395,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEL-7t-K1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ao9-Kt-8O0">
                     <connections>
-                        <segue destination="iNK-FP-zjK" kind="presentation" id="ml4-8Y-1UC"/>
+                        <segue destination="iNK-FP-zjK" kind="presentation" modalPresentationStyle="formSheet" id="ml4-8Y-1UC"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-336.88155922038982"/>
         </scene>
-        <!--Resource Detail Table View Controller-->
+        <!--Resource-->
         <scene sceneID="YSv-IG-XTQ">
             <objects>
                 <tableViewController storyboardIdentifier="resourceDetailVC" id="nKZ-cg-6U0" customClass="ResourceDetailTableViewController" sceneMemberID="viewController">
@@ -397,7 +410,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="ucD-xy-XLH">
+                            <tableViewSection headerTitle="Details" id="ucD-xy-XLH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aJ2-6F-tQk">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -425,7 +438,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="0dc-h7-PYL">
+                            <tableViewSection headerTitle="Location" id="0dc-h7-PYL">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="N5C-XG-obF">
                                         <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
@@ -453,7 +466,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-3" id="GT2-H8-H40">
+                            <tableViewSection headerTitle="Contact" id="GT2-H8-H40">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aSP-N7-2M7">
                                         <rect key="frame" x="0.0" y="431.5" width="375" height="44"/>
@@ -487,7 +500,14 @@
                             <outlet property="delegate" destination="nKZ-cg-6U0" id="LYK-nl-KoP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="w6Y-tR-ssx"/>
+                    <navigationItem key="navigationItem" title="Resource" id="w6Y-tR-ssx">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="DYo-o6-CQO">
+                            <color key="tintColor" name="MainTint"/>
+                            <connections>
+                                <action selector="onDonePressed:" destination="nKZ-cg-6U0" id="vgV-Sy-aJ2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crA-VV-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,8 +517,8 @@
         <scene sceneID="vuE-qZ-DQI">
             <objects>
                 <navigationController storyboardIdentifier="resourceDetailVCNav" id="3kS-K4-ciq" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dwo-Zj-DkE">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Dwo-Zj-DkE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -627,7 +647,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ContactEmpty" width="251" height="252"/>
         <image name="CurrentLocation" width="15" height="15"/>
         <image name="Water" width="350" height="437"/>
+        <namedColor name="MainTint">
+            <color red="0.92100000381469727" green="0.26899999380111694" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="V6b-fZ-mNQ"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,6 @@
 
 #import "ResourcesCollectionViewController.h"
 #import "AccountTableViewController.h"
-#import "Recover_Now-Swift.h"
 #import "Constants.h"
 #import "LocationManager.h"
 #import <CoreLocation/CoreLocation.h>
@@ -16,10 +15,13 @@
 #import "ResourceDetailTableViewController.h"
 #import "ResourceCollectionViewCell.h"
 #import "CollectionReusableView.h"
+#import "UIView+Shadow.h"
 
 #import "Recover_Now-Swift.h"   ///<------------------------------------------------------
 
 @interface ResourcesCollectionViewController ()
+
+-(CGFloat) spacingForCells;
 
 @end
 
@@ -149,6 +151,9 @@ bool requestingLocation = false;
     
     // Configure the cell
     [cell decorateForResource:[self.resources objectAtIndex:indexPath.row]];
+    cell.layer.masksToBounds = false;
+    UIView* roundedView = [[cell subviews] firstObject];
+    [roundedView shadow];
     
     return cell;
 }
@@ -167,5 +172,37 @@ bool requestingLocation = false;
     detailVC.resource = resource;
     [self presentViewController:detailVC animated:true completion:nil];
 }
+
+
+
+
+#pragma mark UICollectionViewFlowLayout methods
+
+-(CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return [self spacingForCells];
+}
+
+-(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat spacing = [self spacingForCells];
+    CGFloat height = self.collectionView.frame.size.height;
+    CGFloat width = self.collectionView.frame.size.width;
+    NSLog(@"Height: %f", height);
+    NSLog(@"Width: %f", width);
+    
+    UIEdgeInsets insets = self.collectionView.contentInset;
+
+    int numberOfCellsInRow = (int) width / 150;
+    NSLog(@"NumCells: %i", numberOfCellsInRow);
+    CGFloat availableWidth = width - ((numberOfCellsInRow - 1) * spacing) - 15.0 - insets.left - insets.right;
+    CGFloat singleCellWidth = availableWidth / ((CGFloat) numberOfCellsInRow);
+    NSLog(@"SingleCellWidth: %f", singleCellWidth);
+    CGFloat singleCellHeight = singleCellWidth * 1.3;
+    return CGSizeMake(singleCellWidth, singleCellHeight);
+}
+
+-(CGFloat) spacingForCells {
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 28.0 : 16.0;
+}
+
 
 @end
