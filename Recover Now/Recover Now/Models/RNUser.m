@@ -10,6 +10,6 @@
 
 @implementation RNUser
 
-@synthesize firstName, lastName, resources;
+@synthesize email, firstName, lastName, resources, imageData;
 
 @end
