@@ -7,6 +7,7 @@
 //
 
 #import "ResourcesCollectionViewController.h"
+#import "AccountTableViewController.h"
 
 @interface ResourcesCollectionViewController ()
 
@@ -45,9 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"viewResourceDetails"]) {
-        
-    }
+    
 }
 
 
