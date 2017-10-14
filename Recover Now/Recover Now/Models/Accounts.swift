@@ -10,7 +10,7 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-class Accounts {
+@objc class Accounts: NSObject {
     
     static let shared = Accounts()
     

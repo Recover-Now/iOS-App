@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RNUser.h"
+#import "Constants.h"
 @import Firebase;
 
 @interface AppDelegate ()
@@ -20,6 +22,8 @@
     // Override point for customization after application launch.
     
     [FIRApp configure];
+    
+    [RNUser setCurrentUser:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey]];
     
     return YES;
 }

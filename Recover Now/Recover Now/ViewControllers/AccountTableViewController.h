@@ -11,4 +11,13 @@
 
 @interface AccountTableViewController : UITableViewController
 
+@property (nonatomic, strong) IBOutlet UILabel* nameLabel;
+@property (nonatomic, strong) IBOutlet UILabel* emailLabel;
+@property (nonatomic, strong) IBOutlet UILabel* location;
+@property (nonatomic, strong) IBOutlet UITableViewCell* safeAndSoundCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell* inNeedCell;
+@property (nonatomic, strong) IBOutlet UIImageView* imageView;
+
+- (IBAction)onDoneButtonPress:(id)sender;
+
 @end

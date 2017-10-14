@@ -17,4 +17,7 @@
 @property (strong, nonatomic) NSArray<RNResource*>* resources;
 @property (strong, nonatomic) NSData* imageData;
 
++ (RNUser*)currentUser;
++ (void)setCurrentUser:(RNUser*)user;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AccountTableViewController.h"
+#import "Recover_Now-Swift.h"
 
 @interface AccountTableViewController ()
 
@@ -22,6 +23,30 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.nameLabel.text = [Accounts userName];
+    self.emailLabel.text = [Accounts userEmail];
+    self.imageView.image = [Accounts userImage];
+}
+
+- (IBAction)onDoneButtonPress:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section >= 2;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    if (indexPath.section == 3) {
+        [[Accounts shared] logoutWithCompletion:^(NSError* error){}];
+    } else if (indexPath.section == 2) {
+        UITableViewCell* currentCell = indexPath.row == 0 ? self.safeAndSoundCell : self.inNeedCell;
+        UITableViewCell* otherCell = indexPath.row != 0 ? self.safeAndSoundCell : self.inNeedCell;
+        currentCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        otherCell.accessoryType = UITableViewCellAccessoryNone;
+    }
 }
 
 /*
