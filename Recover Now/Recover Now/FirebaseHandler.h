@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RNUser.h"
+#import "RNLocation.h"
+#import "RNResource.h"
+#import "RNRecoveryArea.h"
 
 @interface FirebaseHandler : NSObject
+
++ (RNUser*)retrieveUserWithIdentifier:(NSString*)identifier;
++ (RNLocation*)retrieveLocationWithIdentifier:(NSString*)identifier;
++ (RNResource*)retrieveResourceWithIdentifier:(NSString*)identifier;
++ (RNRecoveryArea*)retrieveRecoveryAreaWithIdentifier:(NSString*)identifier;
 
 @end

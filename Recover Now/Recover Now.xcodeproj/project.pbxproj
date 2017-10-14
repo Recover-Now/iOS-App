@@ -19,6 +19,7 @@
 		AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091211F91BB9000FFEF97 /* RNResource.m */; };
 		AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091241F91BECF00FFEF97 /* RNUser.m */; };
 		AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */; };
+		AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30912A1F91C13600FFEF97 /* RNRecoveryArea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		AF3091241F91BECF00FFEF97 /* RNUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNUser.m; sourceTree = "<group>"; };
 		AF3091261F91C01F00FFEF97 /* FirebaseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseHandler.h; sourceTree = "<group>"; };
 		AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseHandler.m; sourceTree = "<group>"; };
+		AF3091291F91C13600FFEF97 /* RNRecoveryArea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRecoveryArea.h; sourceTree = "<group>"; };
+		AF30912A1F91C13600FFEF97 /* RNRecoveryArea.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRecoveryArea.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				AF3091241F91BECF00FFEF97 /* RNUser.m */,
 				AF30911D1F91B9C100FFEF97 /* FirebaseObject.h */,
 				AF30911E1F91B9C100FFEF97 /* FirebaseObject.m */,
+				AF3091291F91C13600FFEF97 /* RNRecoveryArea.h */,
+				AF30912A1F91C13600FFEF97 /* RNRecoveryArea.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				AF30911C1F91B93900FFEF97 /* RNLocation.m in Sources */,
 				91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */,
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
+				AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
 				AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */,
