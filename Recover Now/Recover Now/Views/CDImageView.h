@@ -14,8 +14,3 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat *cornerRadius;
 
 @end
-
-IB_DESIGNABLE
-@interface CDCircularImageView : CDImageView
-
-@end

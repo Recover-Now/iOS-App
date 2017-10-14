@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F2705C4624897A0A01A4280 /* libPods-Recover Now.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */; };
 		91A63BD21F91C64800D870B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */; };
-		91A63BD41F91C6EB00D870B9 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 91A63BD31F91C6EA00D870B9 /* Views */; };
 		91A63BDD1F91CED100D870B9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A63BD81F91CED000D870B9 /* FirebaseService.swift */; };
 		91A63BDE1F91CED100D870B9 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A63BD91F91CED000D870B9 /* FirebaseStorage.swift */; };
 		91A63BDF1F91CED100D870B9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A63BDA1F91CED100D870B9 /* DatabaseManager.swift */; };
@@ -20,8 +19,6 @@
 		91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD891F91AD74001ED35C /* Assets.xcassets */; };
 		91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */; };
 		91B0FD901F91AD74001ED35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD8F1F91AD74001ED35C /* main.m */; };
-		91B887F31F9298A3002AB7EA /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B887F21F9298A3002AB7EA /* CollectionReusableView.m */; };
-		91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */; };
 		91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C71F923B580024EC05 /* LocationManager.m */; };
 		91DBE8CB1F924D990024EC05 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DBE8C91F924D990024EC05 /* Login.storyboard */; };
 		91DBE8CD1F924FB70024EC05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8CC1F924FB60024EC05 /* LoginViewController.swift */; };
@@ -30,6 +27,10 @@
 		91DBE8D91F92503D0024EC05 /* CPTextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8D61F92503D0024EC05 /* CPTextFieldManager.swift */; };
 		91DBE8DB1F9252310024EC05 /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8DA1F9252310024EC05 /* ManagedViewController.swift */; };
 		91DBE8DE1F9252C00024EC05 /* UIImage+UIImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8DD1F9252C00024EC05 /* UIImage+UIImageCategory.m */; };
+		AF2C26E61F929FED0040B93C /* CDCircularImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2C26DE1F929FEB0040B93C /* CDCircularImageView.m */; };
+		AF2C26E71F929FED0040B93C /* CDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2C26DF1F929FEC0040B93C /* CDImageView.m */; };
+		AF2C26E81F929FED0040B93C /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2C26E11F929FEC0040B93C /* CollectionReusableView.m */; };
+		AF2C26E91F929FED0040B93C /* ResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2C26E41F929FED0040B93C /* ResourceCollectionViewCell.m */; };
 		AF30911C1F91B93900FFEF97 /* RNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30911B1F91B93900FFEF97 /* RNLocation.m */; };
 		AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30911E1F91B9C100FFEF97 /* FirebaseObject.m */; };
 		AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091211F91BB9000FFEF97 /* RNResource.m */; };
@@ -48,7 +49,6 @@
 		28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recover Now.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA65EC7879340C0A671C94A /* Pods-Recover Now.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recover Now.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now.debug.xcconfig"; sourceTree = "<group>"; };
 		91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		91A63BD31F91C6EA00D870B9 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
 		91A63BD71F91CED000D870B9 /* Recover Now-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover Now-Bridging-Header.h"; sourceTree = "<group>"; };
 		91A63BD81F91CED000D870B9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		91A63BD91F91CED000D870B9 /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
@@ -63,10 +63,6 @@
 		91B0FD8C1F91AD74001ED35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B0FD8E1F91AD74001ED35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91B0FD8F1F91AD74001ED35C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		91B887F11F9298A3002AB7EA /* CollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectionReusableView.h; path = "Recover Now/Views/CollectionReusableView.h"; sourceTree = SOURCE_ROOT; };
-		91B887F21F9298A3002AB7EA /* CollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CollectionReusableView.m; path = "Recover Now/Views/CollectionReusableView.m"; sourceTree = SOURCE_ROOT; };
-		91DBE8C01F91DC910024EC05 /* ResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ResourceCollectionViewCell.h; path = "Recover Now/Views/ResourceCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
-		91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ResourceCollectionViewCell.m; path = "Recover Now/Views/ResourceCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		91DBE8C61F923B580024EC05 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		91DBE8C71F923B580024EC05 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		91DBE8CA1F924D990024EC05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -77,6 +73,14 @@
 		91DBE8DA1F9252310024EC05 /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedViewController.swift; sourceTree = "<group>"; };
 		91DBE8DC1F9252C00024EC05 /* UIImage+UIImageCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageCategory.h"; sourceTree = "<group>"; };
 		91DBE8DD1F9252C00024EC05 /* UIImage+UIImageCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageCategory.m"; sourceTree = "<group>"; };
+		AF2C26DE1F929FEB0040B93C /* CDCircularImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDCircularImageView.m; sourceTree = "<group>"; };
+		AF2C26DF1F929FEC0040B93C /* CDImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDImageView.m; sourceTree = "<group>"; };
+		AF2C26E01F929FEC0040B93C /* ResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceCollectionViewCell.h; sourceTree = "<group>"; };
+		AF2C26E11F929FEC0040B93C /* CollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
+		AF2C26E21F929FED0040B93C /* CDCircularImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDCircularImageView.h; sourceTree = "<group>"; };
+		AF2C26E31F929FED0040B93C /* CDImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDImageView.h; sourceTree = "<group>"; };
+		AF2C26E41F929FED0040B93C /* ResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceCollectionViewCell.m; sourceTree = "<group>"; };
+		AF2C26E51F929FED0040B93C /* CollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
 		AF30911A1F91B93900FFEF97 /* RNLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLocation.h; sourceTree = "<group>"; };
 		AF30911B1F91B93900FFEF97 /* RNLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLocation.m; sourceTree = "<group>"; };
 		AF30911D1F91B9C100FFEF97 /* FirebaseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseObject.h; sourceTree = "<group>"; };
@@ -149,11 +153,11 @@
 				91DBE8C31F923AB70024EC05 /* Utility */,
 				AF30912C1F91C1C300FFEF97 /* ViewControllers */,
 				AF3091191F91B91100FFEF97 /* Models */,
+				AF2C26EA1F92A0030040B93C /* Views */,
 				91B0FD7D1F91AD74001ED35C /* AppDelegate.h */,
 				91B0FD7E1F91AD74001ED35C /* AppDelegate.m */,
 				91B0FD861F91AD74001ED35C /* Main.storyboard */,
 				91DBE8C91F924D990024EC05 /* Login.storyboard */,
-				91A63BD31F91C6EA00D870B9 /* Views */,
 				91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */,
 				91B0FD891F91AD74001ED35C /* Assets.xcassets */,
 				91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */,
@@ -177,6 +181,21 @@
 				AFCD55AA1F924B6D0097AE67 /* LoadData.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		AF2C26EA1F92A0030040B93C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF2C26E21F929FED0040B93C /* CDCircularImageView.h */,
+				AF2C26DE1F929FEB0040B93C /* CDCircularImageView.m */,
+				AF2C26E31F929FED0040B93C /* CDImageView.h */,
+				AF2C26DF1F929FEC0040B93C /* CDImageView.m */,
+				AF2C26E51F929FED0040B93C /* CollectionReusableView.h */,
+				AF2C26E11F929FEC0040B93C /* CollectionReusableView.m */,
+				AF2C26E01F929FEC0040B93C /* ResourceCollectionViewCell.h */,
+				AF2C26E41F929FED0040B93C /* ResourceCollectionViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AF3091191F91B91100FFEF97 /* Models */ = {
@@ -206,8 +225,6 @@
 			children = (
 				AF30912D1F91C23800FFEF97 /* ResourcesCollectionViewController.h */,
 				AF30912E1F91C23800FFEF97 /* ResourcesCollectionViewController.m */,
-				91DBE8C01F91DC910024EC05 /* ResourceCollectionViewCell.h */,
-				91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */,
 				AF3091301F91C33800FFEF97 /* SearchTableViewController.h */,
 				AF3091311F91C33800FFEF97 /* SearchTableViewController.m */,
 				AF3091331F91C6CD00FFEF97 /* AccountTableViewController.h */,
@@ -219,8 +236,6 @@
 				91DBE8D51F92503D0024EC05 /* CEViewController.swift */,
 				AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */,
 				AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */,
-				91B887F11F9298A3002AB7EA /* CollectionReusableView.h */,
-				91B887F21F9298A3002AB7EA /* CollectionReusableView.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,7 +314,6 @@
 				91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */,
 				91A63BD21F91C64800D870B9 /* GoogleService-Info.plist in Resources */,
 				91DBE8CB1F924D990024EC05 /* Login.storyboard in Resources */,
-				91A63BD41F91C6EB00D870B9 /* Views in Resources */,
 				91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */,
 				91B0FD881F91AD74001ED35C /* Main.storyboard in Resources */,
 			);
@@ -374,22 +388,24 @@
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
 				AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */,
 				91DBE8CD1F924FB70024EC05 /* LoginViewController.swift in Sources */,
+				AF2C26E81F929FED0040B93C /* CollectionReusableView.m in Sources */,
 				91DBE8D71F92503D0024EC05 /* CPPhotoPicker.swift in Sources */,
 				91A63BDD1F91CED100D870B9 /* FirebaseService.swift in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
+				AF2C26E61F929FED0040B93C /* CDCircularImageView.m in Sources */,
 				91DBE8DE1F9252C00024EC05 /* UIImage+UIImageCategory.m in Sources */,
-				91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */,
 				AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */,
 				AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */,
 				91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */,
 				AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */,
-				91B887F31F9298A3002AB7EA /* CollectionReusableView.m in Sources */,
+				AF2C26E71F929FED0040B93C /* CDImageView.m in Sources */,
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
 				91A63BE11F91CED100D870B9 /* Accounts.swift in Sources */,
 				91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
 				AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */,
 				91A63BE01F91CED100D870B9 /* FirebaseObjects.swift in Sources */,
+				AF2C26E91F929FED0040B93C /* ResourceCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
