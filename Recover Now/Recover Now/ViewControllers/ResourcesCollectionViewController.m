@@ -25,6 +25,7 @@
 @implementation ResourcesCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+bool requestingLocation = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +45,7 @@ static NSString * const reuseIdentifier = @"Cell";
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
         && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
         NSLog(@"Requesting");
+        requestingLocation = true;
         [[LocationManager locationManager] requestWhenInUseAuthorization];
     }
     
@@ -52,7 +54,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     
     
-    if ([LocationManager currentUserLocation]) {
+    if ([LocationManager currentUserLocation] || true) {
         [self.activityIndicator startAnimating];
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -68,9 +70,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidAppear:animated];
     LocationManager.locationManager.delegate = self;
     CLLocation* userLocation = [LocationManager currentUserLocation];
-    if (!userLocation) {
+    if (!userLocation && !requestingLocation) {
         [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
-        return;
     }
 }
 
