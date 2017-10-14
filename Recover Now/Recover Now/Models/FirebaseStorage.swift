@@ -26,7 +26,7 @@ class FirebaseStorage {
     }
     
     var usersDirectoryReference: StorageReference {
-        return storageRef.child(FirebaseEntity.RNUser.rawValue)
+        return storageRef.child("\(FirebaseEntity.RNUser)")
     }
 
     var pngMetadata: StorageMetadata {

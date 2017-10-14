@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RNUser.h"
 #import "Constants.h"
+#import "Recover_Now-Swift.h"
 @import Firebase;
 
 @interface AppDelegate ()

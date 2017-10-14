@@ -22,9 +22,9 @@ enum FirebaseEntity: String {
     var reference: DatabaseReference!
     var entity: FirebaseEntity
     
-    init(entity: FirebaseEntity) {
-        self.entity = entity
-        self.reference = Database.database().reference().child(entity.rawValue)
+    @objc init(entity: String) {
+        self.entity = FirebaseEntity(rawValue: entity) ?? FirebaseEntity.RNUser
+        self.reference = Database.database().reference().child(self.entity.rawValue)
         super.init()
     }
     
