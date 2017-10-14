@@ -20,7 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    UITableViewController* searchResultsDisplay = [self.storyboard instantiateViewControllerWithIdentifier:@"searchController"];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsDisplay];
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.placeholder = @"Resources & recovery areas";

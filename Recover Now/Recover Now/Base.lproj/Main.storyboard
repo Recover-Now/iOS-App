@@ -340,7 +340,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64m-3q-W1U">
-                                    <rect key="frame" x="8" y="34" width="309" height="43"/>
+                                    <rect key="frame" x="5" y="34" width="312" height="43"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -375,7 +375,7 @@
                                 <constraint firstItem="64m-3q-W1U" firstAttribute="bottom" secondItem="QrX-sQ-L4D" secondAttribute="bottomMargin" constant="-8" id="YLg-iE-vCy"/>
                                 <constraint firstItem="oU8-eG-frg" firstAttribute="centerX" secondItem="QrX-sQ-L4D" secondAttribute="centerX" id="bf7-lq-T6U"/>
                                 <constraint firstItem="oU8-eG-frg" firstAttribute="leading" secondItem="QrX-sQ-L4D" secondAttribute="leadingMargin" constant="8" id="eaz-5I-XVN"/>
-                                <constraint firstItem="64m-3q-W1U" firstAttribute="leading" secondItem="QrX-sQ-L4D" secondAttribute="leadingMargin" constant="8" id="knr-1J-MIC"/>
+                                <constraint firstItem="64m-3q-W1U" firstAttribute="leading" secondItem="QrX-sQ-L4D" secondAttribute="leadingMargin" constant="5" id="knr-1J-MIC"/>
                                 <constraint firstItem="oU8-eG-frg" firstAttribute="top" secondItem="64m-3q-W1U" secondAttribute="bottom" constant="5" id="m55-jv-qeN"/>
                                 <constraint firstItem="oak-rD-JB5" firstAttribute="leading" secondItem="64m-3q-W1U" secondAttribute="trailing" constant="15" id="y0f-JN-hNm"/>
                                 <constraint firstItem="oU8-eG-frg" firstAttribute="trailing" secondItem="QrX-sQ-L4D" secondAttribute="trailingMargin" constant="-8" id="yVP-CZ-C7I"/>
@@ -574,6 +574,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="YLF-br-Obh">
+                            <rect key="frame" x="0.0" y="88" width="375" height="270"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="zAu-0u-QGU">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
@@ -606,7 +611,35 @@
                     </connections>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="1537" y="1047"/>
+            <point key="canvasLocation" x="1536.8" y="1046.6266866566718"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="e0v-Sk-isp">
+            <objects>
+                <tableViewController storyboardIdentifier="searchController" id="eOj-S4-mT0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LDF-rF-reh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="B24-tF-WeR">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B24-tF-WeR" id="N6j-EH-fWX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eOj-S4-mT0" id="FsO-Bv-R2a"/>
+                            <outlet property="delegate" destination="eOj-S4-mT0" id="jrP-tG-0uX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJD-er-lLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2291" y="1043"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7l8-nb-9ry">
@@ -651,7 +684,7 @@
         <image name="CurrentLocation" width="15" height="15"/>
         <image name="Water" width="350" height="437"/>
         <namedColor name="MainTint">
-            <color red="0.92100000381469727" green="0.26899999380111694" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92000001668930054" green="0.26899999380111694" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

@@ -42,6 +42,8 @@ bool requestingLocation = false;
         }
     }];
     
+    CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 16.0 : 8.0;
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, inset, 0, inset);
     
     LocationManager.locationManager.delegate = self;
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
@@ -201,7 +203,7 @@ bool requestingLocation = false;
 }
 
 -(CGFloat) spacingForCells {
-    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 28.0 : 16.0;
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 32.0 : 20.0;
 }
 
 
