@@ -11,8 +11,6 @@
 
 @interface LocationManager : NSObject
 
-static CLLocationManager* locationManager;
-
-+ (CLLocationCoordinate2D) currentUserLocation;
++ (CLLocation*) currentUserLocation;
 
 @end

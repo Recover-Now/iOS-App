@@ -12,8 +12,10 @@
 
 @implementation LocationManager
 
-+ (CLLocationCoordinate2D) currentUserLocation {
-    return locationManager.location
+static CLLocationManager* locationManager;
+
++ (CLLocation*) currentUserLocation {
+    return locationManager.location;
 }
 
 @end

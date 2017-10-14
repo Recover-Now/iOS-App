@@ -11,7 +11,7 @@
 @implementation ResourceCollectionViewCell
 
 - (void) decorateForResource: (RNResource*) resource {
-    self.typeLabel.text = //resource.
+    //self.typeLabel.text = //resource.
 }
 
 @end

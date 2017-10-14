@@ -15,21 +15,22 @@
 -(NSString *)categoryDescription {
     switch (self.category) {
         case RNResourceCategoryHousing:
-            return @"Housing"
+            return @"Housing";
             break;
         case RNResourceCategoryRides:
-            return @"Ride Sharing"
+            return @"Ride Sharing";
             break;
         case RNResourceCategoryClothing:
-            return @"Clothing"
+            return @"Clothing";
             break;
         case RNResourceCategoryMedicine:
-            return @"Medicine"
+            return @"Medicine";
             break;
         case RNResourceCategoryFoodWater:
-            return @"Food & Water"
+            return @"Food & Water";
             break;
         default:
+            return @"Unknown Category";
             break;
     }
 }
