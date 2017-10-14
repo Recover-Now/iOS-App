@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2705C4624897A0A01A4280 /* libPods-Recover Now.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */; };
 		91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD7E1F91AD74001ED35C /* AppDelegate.m */; };
 		91B0FD821F91AD74001ED35C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD811F91AD74001ED35C /* FirstViewController.m */; };
 		91B0FD851F91AD74001ED35C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD841F91AD74001ED35C /* SecondViewController.m */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DDBA4C83B7F7345F3DF15EF /* Pods-Recover Now.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recover Now.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now.release.xcconfig"; sourceTree = "<group>"; };
+		28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recover Now.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FA65EC7879340C0A671C94A /* Pods-Recover Now.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recover Now.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now.debug.xcconfig"; sourceTree = "<group>"; };
 		91B0FD7A1F91AD74001ED35C /* Recover Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recover Now.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B0FD7D1F91AD74001ED35C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		91B0FD7E1F91AD74001ED35C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,17 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2705C4624897A0A01A4280 /* libPods-Recover Now.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E149F600CE95262BE82378F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91B0FD711F91AD74001ED35C = {
 			isa = PBXGroup;
 			children = (
 				91B0FD7C1F91AD74001ED35C /* Recover Now */,
 				91B0FD7B1F91AD74001ED35C /* Products */,
+				C3C966E591BF5A2511745F9A /* Pods */,
+				0E149F600CE95262BE82378F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +91,15 @@
 			path = "Recover Now";
 			sourceTree = "<group>";
 		};
+		C3C966E591BF5A2511745F9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FA65EC7879340C0A671C94A /* Pods-Recover Now.debug.xcconfig */,
+				1DDBA4C83B7F7345F3DF15EF /* Pods-Recover Now.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91B0FD931F91AD74001ED35C /* Build configuration list for PBXNativeTarget "Recover Now" */;
 			buildPhases = (
+				38F1903E2F5141EEF57CA0A6 /* [CP] Check Pods Manifest.lock */,
 				91B0FD761F91AD74001ED35C /* Sources */,
 				91B0FD771F91AD74001ED35C /* Frameworks */,
 				91B0FD781F91AD74001ED35C /* Resources */,
+				4CD30D216E6D75D1552D1CD9 /* [CP] Embed Pods Frameworks */,
+				823EB8906F1D46B87754D021 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,6 +168,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38F1903E2F5141EEF57CA0A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recover Now-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CD30D216E6D75D1552D1CD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		823EB8906F1D46B87754D021 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91B0FD761F91AD74001ED35C /* Sources */ = {
@@ -282,6 +360,7 @@
 		};
 		91B0FD941F91AD74001ED35C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA65EC7879340C0A671C94A /* Pods-Recover Now.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +376,7 @@
 		};
 		91B0FD951F91AD74001ED35C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DDBA4C83B7F7345F3DF15EF /* Pods-Recover Now.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
