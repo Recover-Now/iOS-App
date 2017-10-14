@@ -107,8 +107,8 @@ bool requestingLocation = false;
     
     [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
         [self.resources addObjectsFromArray:res];
-        [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
-            [self.resources addObjectsFromArray:res];
+        [LoadData retrieveRecoveryAreasForLocation:location withCompletion:^(NSArray<RNRecoveryArea *> * res2) {
+            [self.resources addObjectsFromArray:res2];
             if (self.resources.count == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.activityIndicator stopAnimating];

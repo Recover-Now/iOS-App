@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "RNResource.h"
+#import "RNRecoveryArea.h"
 
 @interface LoadData : NSObject
 
 + (void)retrieveResourcesForLocation:(NSString*)location withCompletion:(void (^)(NSArray<RNResource*> *))completion;
++ (void)retrieveRecoveryAreasForLocation:(NSString*)location withCompletion:(void (^)(NSArray<RNRecoveryArea*> *))completion;
 
 @end
