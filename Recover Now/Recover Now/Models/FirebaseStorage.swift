@@ -37,19 +37,19 @@ import Firebase
     }
     
     func uploadImage(data: Data, for entity: FirebaseEntity, withIdentifier identifier: String, _ handler: @escaping (StorageMetadata?, Error?) -> Void) {
-        let childRef = storageRef.child(entity.rawValue).child("\(identifier).png")
+        let childRef = storageRef.child(entity.rawValue).child(identifier)
         childRef.putData(data, metadata: pngMetadata) { metadata, error in
             handler(metadata, error) }
     }
     
     func retrieveImageData(for identifier: String, entity: FirebaseEntity, handler: @escaping (Data?, Error?) -> Void) {
-        let reference = storageRef.child(entity.rawValue).child("\(identifier).png")
+        let reference = storageRef.child(entity.rawValue).child(identifier)
         reference.getData(maxSize: TPPassPictureMaxSize, completion: handler)
     }
     
     
     func retrieveProfilePicture(for uid: String, _ handler: @escaping (Data?, Error?) -> Void) {
-        let childRef = usersDirectoryReference.child("\(uid).png")
+        let childRef = usersDirectoryReference.child(uid)
         childRef.getData(maxSize: TPProfilePictureMaxSize, completion: handler)
     }
     

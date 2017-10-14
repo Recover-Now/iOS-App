@@ -12,10 +12,12 @@
 @implementation LoadData
 
 + (NSArray<RNResource*> *)retrieveResourcesForLocation:(NSString*)location {
+    NSLog(@"Retrieving resources for %@", location);
     NSMutableArray<RNResource*>* resources = [[NSMutableArray<RNResource*> alloc] init];
     FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [fbService retrieveListForIdentifier:[NSString stringWithFormat:@"%@/resources", location] completion:^(NSDictionary<NSString *,id> * _Nonnull data) {
+        NSLog(@"Callback 1");
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_group_t dataGroup = dispatch_group_create();
         for (NSString* key in data.allKeys) {
@@ -33,6 +35,7 @@
         dispatch_group_wait(dataGroup, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
     }];
     [fbService retrieveListForIdentifier:[NSString stringWithFormat:@"%@/recoveryAreas", location] completion:^(NSDictionary<NSString *,id> * _Nonnull data) {
+        NSLog(@"Callback 2");
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_group_t dataGroup = dispatch_group_create();
         for (NSString* key in data.allKeys) {
@@ -48,7 +51,9 @@
         }
         dispatch_group_wait(dataGroup, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
     }];
+    NSLog(@"Wait 1");
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
+    NSLog(@"Wait 2");
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
     NSLog(@"Resources obtained; returning");
     return resources;

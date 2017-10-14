@@ -43,32 +43,35 @@ static NSString * const reuseIdentifier = @"Cell";
     
     if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
         && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
+        NSLog(@"Requesting");
         [[LocationManager locationManager] requestWhenInUseAuthorization];
     }
     
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
     [self.activityIndicator setHidesWhenStopped:true];
     
+    
+    
+    if ([LocationManager currentUserLocation]) {
+        [self.activityIndicator startAnimating];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
+            NSLog(@"Reloading collectionView");
+            [self.collectionView reloadData];
+            [self.activityIndicator stopAnimating];
+        });
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     LocationManager.locationManager.delegate = self;
     CLLocation* userLocation = [LocationManager currentUserLocation];
     if (!userLocation) {
         [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
         return;
     }
-    
-    [self.activityIndicator startAnimating];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.resources = [[LoadData retrieveResourcesForLocation: userLocation] mutableCopy];
-        NSLog(@"Reloading collectionView");
-        [self.collectionView reloadData];
-        [self.activityIndicator stopAnimating];
-    });
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
 }
 
 
@@ -79,7 +82,7 @@ static NSString * const reuseIdentifier = @"Cell";
         CLLocation* userLocation = [LocationManager currentUserLocation];
         if (!userLocation) { return; }
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.resources = [[LoadData retrieveResourcesForLocation: userLocation] mutableCopy];
+            self.resources = [[LoadData retrieveResourcesForLocation:@"USA-GA-Atlanta"] mutableCopy];
             NSLog(@"Reloading collectionView");
             [self.collectionView reloadData];
             [self.activityIndicator stopAnimating];
@@ -98,6 +101,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.resources.count;
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ResourceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
