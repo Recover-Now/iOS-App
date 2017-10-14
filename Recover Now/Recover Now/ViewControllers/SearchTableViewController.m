@@ -37,20 +37,34 @@
     
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
     self.results = [[NSMutableArray<RNResource*> alloc] init];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] init];
+    [self.activityIndicator setColor:MAIN_COLOR];
+    [self.view addSubview:self.activityIndicator];
+    self.activityIndicator.center = self.view.center;
     [self.activityIndicator setHidesWhenStopped:true];
-    [self.activityIndicator startAnimating];
     
-    CLLocation* userLocation = [LocationManager currentUserLocation];
+    NSString* userLocation = [LocationManager currentUserLocation];
     if (!userLocation) {
-        [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
+        NSLog(@"WARNING -- No location to use for search results");
         return;
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        //self.resources = [[LoadData retrieveResourcesForLocation:[LocationManager currentUserLocation]] mutableCopy];
-        [self.tableView reloadData];
-        [self.activityIndicator stopAnimating];
-    });
+    [self loadData:userLocation];
+    
+}
+
+- (void)loadData:(NSString*) location {
+    [self.activityIndicator startAnimating];
+    
+    [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
+        [self.resources addObjectsFromArray:res];
+        [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
+            [self.resources addObjectsFromArray:res];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.activityIndicator stopAnimating];
+            });
+        }];
+    }];
 }
 
 

@@ -12,9 +12,9 @@
 @interface SearchTableViewController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (strong, nonatomic) NSMutableArray<RNResource*>* results;
-@property (strong, nonatomic) NSArray<RNResource*>* resources;
+@property (strong, nonatomic) NSMutableArray<RNResource*>* resources;
 
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView* activityIndicator;
+@property (nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 @property (nonatomic, strong) UISearchController* searchController;
 
 @end
