@@ -17,6 +17,8 @@
 #define kFirebaseEntityRNRecoveryArea       @"RNRecoveryArea"
 #define kFirebaseEntityRNResource           @"RNResource"
 
+#define IS_LOGGED_IN ([[NSUserDefaults standardUserDefaults] objectForKey:@"TPUDkUserIdenfitier"] != nil)
+
 typedef void (^ CallbackBlock)(void);
 
 #endif /* Constants_h */

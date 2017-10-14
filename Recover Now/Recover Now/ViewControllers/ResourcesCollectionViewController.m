@@ -29,7 +29,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    self.resources = [[NSArray alloc] init];
+    self.resources = [[NSMutableArray<RNResource*> alloc] init];
     [self.activityIndicator startAnimating];
 }
 

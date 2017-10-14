@@ -79,6 +79,7 @@
 		AF3091361F91C91500FFEF97 /* ContributeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContributeViewController.h; sourceTree = "<group>"; };
 		AF3091371F91C91500FFEF97 /* ContributeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContributeViewController.m; sourceTree = "<group>"; };
 		AF3091391F91D47B00FFEF97 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AFCD55A81F9245EE0097AE67 /* Recover_Now-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover_Now-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +123,7 @@
 		91B0FD7C1F91AD74001ED35C /* Recover Now */ = {
 			isa = PBXGroup;
 			children = (
+				AFCD55A81F9245EE0097AE67 /* Recover_Now-Prefix.pch */,
 				91A63BD71F91CED000D870B9 /* Recover Now-Bridging-Header.h */,
 				91DBE8C31F923AB70024EC05 /* Utility */,
 				AF30912C1F91C1C300FFEF97 /* ViewControllers */,
@@ -483,6 +485,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Recover Now/Recover_Now-Prefix.pch";
 				INFOPLIST_FILE = "Recover Now/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -503,6 +507,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V7HL83ZN6U;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Recover Now/Recover_Now-Prefix.pch";
 				INFOPLIST_FILE = "Recover Now/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
