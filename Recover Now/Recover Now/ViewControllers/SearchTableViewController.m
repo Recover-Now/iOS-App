@@ -20,11 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.placeholder = @"Resources & recovery areas";
+    self.searchController.searchResultsUpdater = self;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //UISearchBar* searchBar = (UISearchBar*) self.tableView.tableHeaderView;
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.searchController = self.searchController;
+        self.navigationItem.hidesSearchBarWhenScrolling = false;
+    } else {
+        self.tableView.tableHeaderView = self.searchController.searchBar;
+    }
+    
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
     self.results = [[NSMutableArray<RNResource*> alloc] init];
     [self.activityIndicator setHidesWhenStopped:true];
@@ -43,10 +52,6 @@
     });
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -58,10 +63,15 @@
     return self.results.count;
 }
 
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self.results removeAllObjects];
     for (RNResource* res in self.resources) {
-        if ([res.title containsString:searchText] || [res.content containsString:searchText]) {
+        if ([[res.title lowercaseString] containsString:[searchText lowercaseString]]
+            || [[res.content lowercaseString] containsString: [searchText lowercaseString]]) {
             [self.results addObject:res];
         }
     }

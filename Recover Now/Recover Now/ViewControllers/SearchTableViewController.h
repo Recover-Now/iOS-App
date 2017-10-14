@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
 
-@interface SearchTableViewController : UITableViewController <UISearchBarDelegate>
+@interface SearchTableViewController : UITableViewController <UISearchBarDelegate, UISearchResultsUpdating>
 
 @property (strong, nonatomic) NSMutableArray<RNResource*>* results;
 @property (strong, nonatomic) NSArray<RNResource*>* resources;
 
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView* activityIndicator;
+@property (nonatomic, strong) UISearchController* searchController;
 
 @end

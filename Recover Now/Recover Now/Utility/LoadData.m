@@ -12,6 +12,7 @@
 @implementation LoadData
 
 + (NSArray<RNResource*> *)retrieveResourcesForLocation:(NSString*)location {
+    return nil;
     NSLog(@"Retrieving resources for %@", location);
     NSMutableArray<RNResource*>* resources = [[NSMutableArray<RNResource*> alloc] init];
     FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
