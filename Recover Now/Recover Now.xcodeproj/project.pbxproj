@@ -22,6 +22,13 @@
 		91B0FD901F91AD74001ED35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD8F1F91AD74001ED35C /* main.m */; };
 		91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */; };
 		91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C71F923B580024EC05 /* LocationManager.m */; };
+		91DBE8CB1F924D990024EC05 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DBE8C91F924D990024EC05 /* Login.storyboard */; };
+		91DBE8CD1F924FB70024EC05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8CC1F924FB60024EC05 /* LoginViewController.swift */; };
+		91DBE8D71F92503D0024EC05 /* CPPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8D41F92503C0024EC05 /* CPPhotoPicker.swift */; };
+		91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8D51F92503D0024EC05 /* CEViewController.swift */; };
+		91DBE8D91F92503D0024EC05 /* CPTextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8D61F92503D0024EC05 /* CPTextFieldManager.swift */; };
+		91DBE8DB1F9252310024EC05 /* ManagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8DA1F9252310024EC05 /* ManagedViewController.swift */; };
+		91DBE8DE1F9252C00024EC05 /* UIImage+UIImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8DD1F9252C00024EC05 /* UIImage+UIImageCategory.m */; };
 		AF30911C1F91B93900FFEF97 /* RNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30911B1F91B93900FFEF97 /* RNLocation.m */; };
 		AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30911E1F91B9C100FFEF97 /* FirebaseObject.m */; };
 		AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091211F91BB9000FFEF97 /* RNResource.m */; };
@@ -58,6 +65,14 @@
 		91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ResourceCollectionViewCell.m; path = "Recover Now/Views/ResourceCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		91DBE8C61F923B580024EC05 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		91DBE8C71F923B580024EC05 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		91DBE8CA1F924D990024EC05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		91DBE8CC1F924FB60024EC05 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		91DBE8D41F92503C0024EC05 /* CPPhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPPhotoPicker.swift; path = "Recover Now/Utility/CPPhotoPicker.swift"; sourceTree = SOURCE_ROOT; };
+		91DBE8D51F92503D0024EC05 /* CEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CEViewController.swift; path = "Recover Now/ViewControllers/CEViewController.swift"; sourceTree = SOURCE_ROOT; };
+		91DBE8D61F92503D0024EC05 /* CPTextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPTextFieldManager.swift; path = "Recover Now/Utility/CPTextFieldManager.swift"; sourceTree = SOURCE_ROOT; };
+		91DBE8DA1F9252310024EC05 /* ManagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedViewController.swift; sourceTree = "<group>"; };
+		91DBE8DC1F9252C00024EC05 /* UIImage+UIImageCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageCategory.h"; sourceTree = "<group>"; };
+		91DBE8DD1F9252C00024EC05 /* UIImage+UIImageCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageCategory.m"; sourceTree = "<group>"; };
 		AF30911A1F91B93900FFEF97 /* RNLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLocation.h; sourceTree = "<group>"; };
 		AF30911B1F91B93900FFEF97 /* RNLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLocation.m; sourceTree = "<group>"; };
 		AF30911D1F91B9C100FFEF97 /* FirebaseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseObject.h; sourceTree = "<group>"; };
@@ -129,6 +144,7 @@
 				91B0FD7D1F91AD74001ED35C /* AppDelegate.h */,
 				91B0FD7E1F91AD74001ED35C /* AppDelegate.m */,
 				91B0FD861F91AD74001ED35C /* Main.storyboard */,
+				91DBE8C91F924D990024EC05 /* Login.storyboard */,
 				91A63BD31F91C6EA00D870B9 /* Views */,
 				91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */,
 				91B0FD891F91AD74001ED35C /* Assets.xcassets */,
@@ -147,6 +163,10 @@
 			children = (
 				91DBE8C61F923B580024EC05 /* LocationManager.h */,
 				91DBE8C71F923B580024EC05 /* LocationManager.m */,
+				91DBE8D41F92503C0024EC05 /* CPPhotoPicker.swift */,
+				91DBE8D61F92503D0024EC05 /* CPTextFieldManager.swift */,
+				91DBE8DC1F9252C00024EC05 /* UIImage+UIImageCategory.h */,
+				91DBE8DD1F9252C00024EC05 /* UIImage+UIImageCategory.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -186,6 +206,9 @@
 				AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */,
 				AF3091361F91C91500FFEF97 /* ContributeViewController.h */,
 				AF3091371F91C91500FFEF97 /* ContributeViewController.m */,
+				91DBE8CC1F924FB60024EC05 /* LoginViewController.swift */,
+				91DBE8DA1F9252310024EC05 /* ManagedViewController.swift */,
+				91DBE8D51F92503D0024EC05 /* CEViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +286,7 @@
 			files = (
 				91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */,
 				91A63BD21F91C64800D870B9 /* GoogleService-Info.plist in Resources */,
+				91DBE8CB1F924D990024EC05 /* Login.storyboard in Resources */,
 				91A63BD41F91C6EB00D870B9 /* Views in Resources */,
 				91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */,
 				91B0FD881F91AD74001ED35C /* Main.storyboard in Resources */,
@@ -329,20 +353,26 @@
 			files = (
 				91A63BDE1F91CED100D870B9 /* FirebaseStorage.swift in Sources */,
 				91A63BDF1F91CED100D870B9 /* DatabaseManager.swift in Sources */,
+				91DBE8DB1F9252310024EC05 /* ManagedViewController.swift in Sources */,
 				AF30911C1F91B93900FFEF97 /* RNLocation.m in Sources */,
 				91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */,
 				AF30912F1F91C23800FFEF97 /* ResourcesCollectionViewController.m in Sources */,
 				AF3091321F91C33800FFEF97 /* SearchTableViewController.m in Sources */,
+				91DBE8D91F92503D0024EC05 /* CPTextFieldManager.swift in Sources */,
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
 				AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */,
+				91DBE8CD1F924FB70024EC05 /* LoginViewController.swift in Sources */,
+				91DBE8D71F92503D0024EC05 /* CPPhotoPicker.swift in Sources */,
 				91A63BDD1F91CED100D870B9 /* FirebaseService.swift in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
+				91DBE8DE1F9252C00024EC05 /* UIImage+UIImageCategory.m in Sources */,
 				91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */,
 				AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */,
 				91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */,
 				AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */,
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
 				91A63BE11F91CED100D870B9 /* Accounts.swift in Sources */,
+				91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */,
 				AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
 				91A63BE01F91CED100D870B9 /* FirebaseObjects.swift in Sources */,
@@ -366,6 +396,14 @@
 				91B0FD8C1F91AD74001ED35C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		91DBE8C91F924D990024EC05 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				91DBE8CA1F924D990024EC05 /* Base */,
+			);
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

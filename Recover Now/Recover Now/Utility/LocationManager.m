@@ -14,7 +14,14 @@
 
 static CLLocationManager* locationManager;
 
-+ (CLLocation*) currentUserLocation {
++ (CLLocationManager *)locationManager {
+    if (!locationManager) {
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    return locationManager;
+}
+
++ (CLLocation *) currentUserLocation {
     return locationManager.location;
 }
 

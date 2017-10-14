@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
 
-@interface ResourceCollectionViewCell : NSObject
+@interface ResourceCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) UILabel* typeLabel;
-@property (nonatomic, strong) UILabel* distanceLabel;
-@property (nonatomic, strong) UIImageView* imageView;
+@property (nonatomic, strong) IBOutlet UILabel* typeLabel;
+@property (nonatomic, strong) IBOutlet UILabel* distanceLabel;
+@property (nonatomic, strong) IBOutlet UIImageView* imageView;
 
 - (void) decorateForResource: (RNResource*) resource;
 

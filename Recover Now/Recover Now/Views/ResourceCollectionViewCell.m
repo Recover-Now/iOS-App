@@ -7,11 +7,14 @@
 //
 
 #import "ResourceCollectionViewCell.h"
+#import <Foundation/Foundation.h>
 
 @implementation ResourceCollectionViewCell
 
 - (void) decorateForResource: (RNResource*) resource {
-    //self.typeLabel.text = //resource.
+    self.typeLabel.text = resource.categoryDescription;
+    self.imageView.image = [UIImage imageNamed:@"Water"];
+    
 }
 
 @end

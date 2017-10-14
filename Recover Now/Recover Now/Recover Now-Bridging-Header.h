@@ -7,3 +7,6 @@
 #import "RNResource.h"
 #import "RNRecoveryArea.h"
 #import "FirebaseObject.h"
+
+//Extensions
+#import "UIImage+UIImageCategory.h"

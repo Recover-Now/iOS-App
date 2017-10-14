@@ -10,6 +10,8 @@
 #import "AccountTableViewController.h"
 #import "Recover_Now-Swift.h"
 #import "Constants.h"
+#import "LocationManager.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface ResourcesCollectionViewController ()
 
@@ -29,8 +31,13 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
-    self.resources = [[NSArray alloc] init];
+    self.resources = [[NSMutableArray alloc] init];
     [self.activityIndicator startAnimating];
+    
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse
+        && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways) {
+        [[LocationManager locationManager] requestWhenInUseAuthorization];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

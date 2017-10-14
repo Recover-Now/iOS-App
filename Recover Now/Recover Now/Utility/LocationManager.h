@@ -12,5 +12,6 @@
 @interface LocationManager : NSObject
 
 + (CLLocation*) currentUserLocation;
++ (CLLocationManager *) locationManager;
 
 @end

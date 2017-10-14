@@ -93,6 +93,10 @@ import FirebaseAuth
 //Though ratchet, UserDefaults are used to provide a completely, 100% infallible way of preserving this data
 extension Accounts {
     
+    public func userIsLoggedIn() -> Bool {
+        return Accounts.userIdentifier != nil
+    }
+    
     enum TPUDKeys: String {
         case TPUDkUserFirstName
         case TPUDkUserLastName
@@ -135,9 +139,9 @@ extension Accounts {
     class var userName: String {
         return userFirstName + " " + userLastName
     }
-    class var userIdentifier: String {
+    class var userIdentifier: String? {
         get {
-            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserIdenfitier.rawValue) as! String
+            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserIdenfitier.rawValue) as? String
         }
         set {
             persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserIdenfitier.rawValue)

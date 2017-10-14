@@ -195,7 +195,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resourceCell" id="gjZ-WP-bI7">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resourceCell" id="gjZ-WP-bI7" customClass="ResourceCollectionViewCell">
                                 <rect key="frame" x="10" y="95" width="158" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -252,7 +252,7 @@
                                                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bik-bP-rhM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="xK8-Mu-g5h">
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xK8-Mu-g5h">
                                                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 </view>
@@ -279,14 +279,23 @@
                                                     </constraints>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ1-9J-xuN">
+                                                    <rect key="frame" x="8" y="154" width="28.5" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="xK8-Mu-g5h" firstAttribute="leading" secondItem="XQ1-9J-xuN" secondAttribute="trailing" constant="8" id="5Pl-11-N5Y"/>
                                                 <constraint firstItem="BLh-g0-HdA" firstAttribute="leading" secondItem="Og0-PT-M22" secondAttribute="leading" id="5yG-OD-XrK"/>
                                                 <constraint firstItem="lKZ-ny-NXY" firstAttribute="height" secondItem="Og0-PT-M22" secondAttribute="height" multiplier="0.3" id="9kt-wU-nzG"/>
                                                 <constraint firstAttribute="trailing" secondItem="lKZ-ny-NXY" secondAttribute="trailing" id="Ihf-a4-WwJ"/>
+                                                <constraint firstItem="XQ1-9J-xuN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Og0-PT-M22" secondAttribute="leading" constant="8" id="IjK-EE-b1N"/>
                                                 <constraint firstItem="lKZ-ny-NXY" firstAttribute="top" secondItem="Og0-PT-M22" secondAttribute="top" id="RQt-8G-yCg"/>
                                                 <constraint firstAttribute="trailing" secondItem="BLh-g0-HdA" secondAttribute="trailing" id="cJu-0D-kOl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XQ1-9J-xuN" secondAttribute="bottom" constant="8" id="g7G-17-dXb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zOc-Us-JJe" secondAttribute="trailing" constant="5" id="ixa-q6-KOp"/>
                                                 <constraint firstAttribute="bottom" secondItem="BLh-g0-HdA" secondAttribute="bottom" id="ncN-W1-aBY"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zOc-Us-JJe" secondAttribute="bottom" constant="5" id="uWc-qg-hKu"/>
@@ -307,6 +316,10 @@
                                     <constraint firstItem="Og0-PT-M22" firstAttribute="leading" secondItem="gjZ-WP-bI7" secondAttribute="leading" id="9Ni-Wy-ni8"/>
                                     <constraint firstAttribute="bottom" secondItem="Og0-PT-M22" secondAttribute="bottom" id="ogU-NE-mwO"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="BLh-g0-HdA" id="pbk-5t-Vqw"/>
+                                    <outlet property="typeLabel" destination="4B8-8o-7ZA" id="9RQ-0y-UmC"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="QrX-sQ-L4D">
@@ -484,6 +497,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.92127382759999998" green="0.26919800040000003" blue="0.35286825900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="VCO-iC-j62" kind="relationship" relationship="viewControllers" id="h7i-jg-m7m"/>
