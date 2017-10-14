@@ -9,14 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F2705C4624897A0A01A4280 /* libPods-Recover Now.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */; };
 		91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD7E1F91AD74001ED35C /* AppDelegate.m */; };
-		91B0FD821F91AD74001ED35C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD811F91AD74001ED35C /* FirstViewController.m */; };
-		91B0FD851F91AD74001ED35C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD841F91AD74001ED35C /* SecondViewController.m */; };
 		91B0FD881F91AD74001ED35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD861F91AD74001ED35C /* Main.storyboard */; };
 		91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD891F91AD74001ED35C /* Assets.xcassets */; };
 		91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */; };
 		91B0FD901F91AD74001ED35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD8F1F91AD74001ED35C /* main.m */; };
-		91B0FD991F91B033001ED35C /* ViewControllers in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD961F91B033001ED35C /* ViewControllers */; };
-		91B0FD9A1F91B033001ED35C /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD971F91B033001ED35C /* Views */; };
 		91B0FD9B1F91B033001ED35C /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD981F91B033001ED35C /* Model */; };
 /* End PBXBuildFile section */
 
@@ -27,18 +23,14 @@
 		91B0FD7A1F91AD74001ED35C /* Recover Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recover Now.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B0FD7D1F91AD74001ED35C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		91B0FD7E1F91AD74001ED35C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		91B0FD801F91AD74001ED35C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		91B0FD811F91AD74001ED35C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		91B0FD831F91AD74001ED35C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		91B0FD841F91AD74001ED35C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		91B0FD871F91AD74001ED35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		91B0FD891F91AD74001ED35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B0FD8C1F91AD74001ED35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B0FD8E1F91AD74001ED35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91B0FD8F1F91AD74001ED35C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		91B0FD961F91B033001ED35C /* ViewControllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewControllers; sourceTree = SOURCE_ROOT; };
-		91B0FD971F91B033001ED35C /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = SOURCE_ROOT; };
 		91B0FD981F91B033001ED35C /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = SOURCE_ROOT; };
+		91B0FD9C1F91B33E001ED35C /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Views; path = "/Users/Cliff/Documents/Code/Objective-C/Recover-Now-iOS-App/Recover Now/Recover Now/Views"; sourceTree = "<absolute>"; };
+		91B0FD9D1F91B344001ED35C /* ViewControllers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ViewControllers; path = "/Users/Cliff/Documents/Code/Objective-C/Recover-Now-iOS-App/Recover Now/Recover Now/ViewControllers"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +76,9 @@
 			children = (
 				91B0FD7D1F91AD74001ED35C /* AppDelegate.h */,
 				91B0FD7E1F91AD74001ED35C /* AppDelegate.m */,
-				91B0FD801F91AD74001ED35C /* FirstViewController.h */,
+				91B0FD9D1F91B344001ED35C /* ViewControllers */,
+				91B0FD9C1F91B33E001ED35C /* Views */,
 				91B0FD981F91B033001ED35C /* Model */,
-				91B0FD961F91B033001ED35C /* ViewControllers */,
-				91B0FD971F91B033001ED35C /* Views */,
-				91B0FD811F91AD74001ED35C /* FirstViewController.m */,
-				91B0FD831F91AD74001ED35C /* SecondViewController.h */,
-				91B0FD841F91AD74001ED35C /* SecondViewController.m */,
 				91B0FD861F91AD74001ED35C /* Main.storyboard */,
 				91B0FD891F91AD74001ED35C /* Assets.xcassets */,
 				91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */,
@@ -172,10 +160,8 @@
 			files = (
 				91B0FD9B1F91B033001ED35C /* Model in Resources */,
 				91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */,
-				91B0FD991F91B033001ED35C /* ViewControllers in Resources */,
 				91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */,
 				91B0FD881F91AD74001ED35C /* Main.storyboard in Resources */,
-				91B0FD9A1F91B033001ED35C /* Views in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,10 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B0FD851F91AD74001ED35C /* SecondViewController.m in Sources */,
 				91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
-				91B0FD821F91AD74001ED35C /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
