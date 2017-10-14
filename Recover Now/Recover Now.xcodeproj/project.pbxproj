@@ -18,6 +18,7 @@
 		AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AF30911E1F91B9C100FFEF97 /* FirebaseObject.m */; };
 		AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091211F91BB9000FFEF97 /* RNResource.m */; };
 		AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091241F91BECF00FFEF97 /* RNUser.m */; };
+		AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		AF3091211F91BB9000FFEF97 /* RNResource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNResource.m; sourceTree = "<group>"; };
 		AF3091231F91BECF00FFEF97 /* RNUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNUser.h; sourceTree = "<group>"; };
 		AF3091241F91BECF00FFEF97 /* RNUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNUser.m; sourceTree = "<group>"; };
+		AF3091261F91C01F00FFEF97 /* FirebaseHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseHandler.h; sourceTree = "<group>"; };
+		AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */,
 				91B0FD8E1F91AD74001ED35C /* Info.plist */,
 				91B0FD8F1F91AD74001ED35C /* main.m */,
+				AF3091261F91C01F00FFEF97 /* FirebaseHandler.h */,
+				AF3091271F91C01F00FFEF97 /* FirebaseHandler.m */,
 			);
 			path = "Recover Now";
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
 				91B0FD901F91AD74001ED35C /* main.m in Sources */,
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
+				AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

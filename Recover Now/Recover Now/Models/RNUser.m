@@ -10,4 +10,6 @@
 
 @implementation RNUser
 
+@synthesize firstName, lastName, resources;
+
 @end

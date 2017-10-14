@@ -10,4 +10,6 @@
 
 @implementation RNResource
 
+@synthesize title, content, poster, category;
+
 @end
