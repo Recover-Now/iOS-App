@@ -11,7 +11,8 @@
 
 @interface LocationManager : NSObject
 
-+ (CLLocation*) currentUserLocation;
-+ (CLLocationManager *) locationManager;
++ (CLLocation* _Nullable) currentUserLocation;
++ (CLLocationManager * _Nonnull) locationManager;
++ (void) addressForLocation: (CLLocation*) location withCompletion: (void (^_Nonnull) (NSDictionary<NSString*, id>* _Nullable, NSError*_Nullable)) completion;
 
 @end
