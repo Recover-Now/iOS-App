@@ -20,6 +20,7 @@
 		91B0FD8A1F91AD74001ED35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD891F91AD74001ED35C /* Assets.xcassets */; };
 		91B0FD8D1F91AD74001ED35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B0FD8B1F91AD74001ED35C /* LaunchScreen.storyboard */; };
 		91B0FD901F91AD74001ED35C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B0FD8F1F91AD74001ED35C /* main.m */; };
+		91B887F31F9298A3002AB7EA /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B887F21F9298A3002AB7EA /* CollectionReusableView.m */; };
 		91DBE8C21F91DC910024EC05 /* ResourceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */; };
 		91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DBE8C71F923B580024EC05 /* LocationManager.m */; };
 		91DBE8CB1F924D990024EC05 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91DBE8C91F924D990024EC05 /* Login.storyboard */; };
@@ -62,6 +63,8 @@
 		91B0FD8C1F91AD74001ED35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91B0FD8E1F91AD74001ED35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91B0FD8F1F91AD74001ED35C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		91B887F11F9298A3002AB7EA /* CollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CollectionReusableView.h; path = "Recover Now/Views/CollectionReusableView.h"; sourceTree = SOURCE_ROOT; };
+		91B887F21F9298A3002AB7EA /* CollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CollectionReusableView.m; path = "Recover Now/Views/CollectionReusableView.m"; sourceTree = SOURCE_ROOT; };
 		91DBE8C01F91DC910024EC05 /* ResourceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ResourceCollectionViewCell.h; path = "Recover Now/Views/ResourceCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
 		91DBE8C11F91DC910024EC05 /* ResourceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ResourceCollectionViewCell.m; path = "Recover Now/Views/ResourceCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
 		91DBE8C61F923B580024EC05 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				91DBE8D51F92503D0024EC05 /* CEViewController.swift */,
 				AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */,
 				AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */,
+				91B887F11F9298A3002AB7EA /* CollectionReusableView.h */,
+				91B887F21F9298A3002AB7EA /* CollectionReusableView.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */,
 				91DBE8C81F923B580024EC05 /* LocationManager.m in Sources */,
 				AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */,
+				91B887F31F9298A3002AB7EA /* CollectionReusableView.m in Sources */,
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
 				91A63BE11F91CED100D870B9 /* Accounts.swift in Sources */,
 				91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */,

@@ -8,7 +8,6 @@
 
 #import "CDImageView.h"
 
-
 @implementation CDImageView
 
 @end

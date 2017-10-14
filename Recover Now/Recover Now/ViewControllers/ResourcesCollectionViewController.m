@@ -15,6 +15,7 @@
 #import "LoadData.h"
 #import "ResourceDetailTableViewController.h"
 #import "ResourceCollectionViewCell.h"
+#import "CollectionReusableView.h"
 
 #import "Recover_Now-Swift.h"   ///<------------------------------------------------------
 
@@ -35,7 +36,7 @@ bool requestingLocation = false;
             NSLog(@"Could not retrieve profile picture %@", error);
         } else {
             Accounts.userImageData = data;
-            self.profileImageView.image = [[UIImage alloc] initWithData:data];
+            [self.collectionViewLayout invalidateLayout];
         }
     }];
     
@@ -127,7 +128,8 @@ bool requestingLocation = false;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView* reusable = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+    CollectionReusableView* reusable = (CollectionReusableView*) [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+    reusable.profileImageView.image = Accounts.userImage;
     return reusable;
 }
 
