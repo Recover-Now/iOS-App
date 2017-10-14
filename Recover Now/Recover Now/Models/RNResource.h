@@ -26,6 +26,9 @@ typedef NS_ENUM(NSInteger, RNResourceCategory) {
 @property (nonatomic, strong) NSString* poster;
 @property (nonatomic) NSInteger category;
 
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+
 -(NSString *)categoryDescription;
 
 @end

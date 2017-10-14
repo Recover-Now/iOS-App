@@ -29,6 +29,10 @@ static CLLocationManager* locationManager;
     return nil;
 }
 
++ (CLLocation *) currentCoordinateLocation {
+    return locationManager.location;
+}
+
 + (void) addressForLocation: (CLLocation*) location withCompletion: (void (^) (NSDictionary<NSString*, id>* _Nullable, NSError*)) completion {
     
     CLGeocoder* geoCoder = [[CLGeocoder alloc] init];

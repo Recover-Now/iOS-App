@@ -107,12 +107,14 @@ extension Accounts {
         case TPUDkUserLocation
         case TPUDkUserInNeed
     }
+    //MUST BE CALLED WHEN A USER LOGS IN
     class func saveToUserDefaults(user: RNUser, updateImage: Bool = false) {
         userFirstName = user.firstName ?? ""
         userLastName = user.lastName ?? ""
         userImageData = user.imageData as Data?
         userEmail = user.email!
         userIdentifier = user.identifier!
+        userInNeed = false;
         guard updateImage else { return }
         FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier!) { data, error in
             if let data = data { userImageData = data }

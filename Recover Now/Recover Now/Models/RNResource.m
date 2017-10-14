@@ -10,7 +10,7 @@
 
 @implementation RNResource
 
-@synthesize title, content, poster, category;
+@synthesize title, content, poster, category, longitude, latitude;
 
 -(NSString *)categoryDescription {
     switch (self.category) {

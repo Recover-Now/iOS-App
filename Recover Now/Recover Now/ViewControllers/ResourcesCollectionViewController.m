@@ -21,9 +21,13 @@
 
 @interface ResourcesCollectionViewController ()
 
+@property (nonatomic, strong) UIView* topBar;
+
 -(CGFloat) spacingForCells;
+-(void) orientationDidChange;
 
 @end
+
 
 @implementation ResourcesCollectionViewController
 
@@ -67,7 +71,28 @@ bool requestingLocation = false;
         [self.activityIndicator setHidden:true];
         [self showNoDataState];
     }
+    
+    //Handle orientation change
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
+        self.collectionView.insetsLayoutMarginsFromSafeArea = true;
+        ((UICollectionViewFlowLayout *) self.collectionViewLayout).sectionInsetReference = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
+    }
+    
+    //Status bar management
+    self.topBar = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
+    self.topBar.backgroundColor = UIColor.whiteColor;
+    [self.view addSubview:self.topBar];
 }
+     
+ -(void) orientationDidChange {
+     [self.collectionViewLayout invalidateLayout];
+     [self.topBar removeFromSuperview];
+     self.topBar = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
+     self.topBar.backgroundColor = UIColor.whiteColor;
+     [self.view addSubview:self.topBar];
+ }
 
 - (void)showNoDataState {
     
@@ -192,6 +217,10 @@ bool requestingLocation = false;
     NSLog(@"Width: %f", width);
     
     UIEdgeInsets insets = self.collectionView.contentInset;
+//    if (@available(iOS 11.0, *)) {
+//        NSLog(@"Safe Area");
+//        insets = self.collectionView.safeAreaInsets;
+//    }
 
     int numberOfCellsInRow = (int) width / 150;
     NSLog(@"NumCells: %i", numberOfCellsInRow);

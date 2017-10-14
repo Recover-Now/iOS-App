@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface ResourceCollectionViewCell : UICollectionViewCell
 
