@@ -11,6 +11,6 @@
 
 @interface LoadData : NSObject
 
-+ (NSArray<RNResource*> *)retrieveResourcesForLocation:(NSString*)location;
++ (void)retrieveResourcesForLocation:(NSString*)location withCompletion:(void (^)(NSArray<RNResource*> *))completion;
 
 @end

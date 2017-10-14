@@ -46,7 +46,7 @@
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.resources = [[LoadData retrieveResourcesForLocation:[LocationManager currentUserLocation]] mutableCopy];
+        //self.resources = [[LoadData retrieveResourcesForLocation:[LocationManager currentUserLocation]] mutableCopy];
         [self.tableView reloadData];
         [self.activityIndicator stopAnimating];
     });
