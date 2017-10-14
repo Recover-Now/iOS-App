@@ -99,6 +99,9 @@ extension Accounts {
         case TPUDkUserIdenfitier
         case TPUDkUserImageData
         case TPUDkUserEmail
+        case TPUDkUserResourceList
+        case TPUDkUserLocation
+        case TPUDkUserInNeed
     }
     class func saveToUserDefaults(user: RNUser, updateImage: Bool = false) {
         userFirstName = user.firstName ?? ""
@@ -110,6 +113,8 @@ extension Accounts {
         FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier!) { data, error in
             if let data = data { userImageData = data }
         }
+        userLocation = user.locationIdentifier
+        userResources = user.resourceListIdentifier
     }
     class var userFirstName: String {
         get {
@@ -156,6 +161,30 @@ extension Accounts {
         }
         set {
             persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserEmail.rawValue)
+        }
+    }
+    class var userLocation: String {
+        get {
+            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserLocation.rawValue) as! String
+        }
+        set {
+            persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserLocation.rawValue)
+        }
+    }
+    class var userResources: String {
+        get {
+            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserResourceList.rawValue) as! String
+        }
+        set {
+            persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserResourceList.rawValue)
+        }
+    }
+    class var userInNeed: Bool {
+        get {
+            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserInNeed.rawValue) as! Bool
+        }
+        set {
+            persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserInNeed.rawValue)
         }
     }
     

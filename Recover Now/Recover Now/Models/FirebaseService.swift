@@ -18,7 +18,7 @@ enum FirebaseEntity: String {
     case RNRecoveryArea
 }
 
-class FirebaseService : NSObject {
+@objc class FirebaseService : NSObject {
     var reference: DatabaseReference!
     var entity: FirebaseEntity
     

@@ -27,6 +27,12 @@
     self.nameLabel.text = [Accounts userName];
     self.emailLabel.text = [Accounts userEmail];
     self.imageView.image = [Accounts userImage];
+    self.location.text = [Accounts userLocation];
+    if ([Accounts userInNeed]) {
+        self.inNeedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        self.safeAndSoundCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
 }
 
 - (IBAction)onDoneButtonPress:(id)sender {

@@ -23,8 +23,6 @@
     
     [FIRApp configure];
     
-    [RNUser setCurrentUser:[[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey]];
-    
     return YES;
 }
 
