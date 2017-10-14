@@ -33,7 +33,7 @@ extension RNRecoveryArea {
 /// A functionally abstract class to manage all Firebases-stored data objects (entities)
 extension FirebaseObject {
     
-    convenience init(snapshot: DataSnapshot? = nil, _ entity: FirebaseEntity) {
+    convenience init(snapshot: DataSnapshot? = nil) {
 
         self.init()
         

@@ -93,7 +93,7 @@ import FirebaseAuth
 //Though ratchet, UserDefaults are used to provide a completely, 100% infallible way of preserving this data
 extension Accounts {
     
-    public func userIsLoggedIn() -> Bool {
+    class func userIsLoggedIn() -> Bool {
         return Accounts.userIdentifier != nil
     }
     
@@ -117,8 +117,8 @@ extension Accounts {
         FirebaseStorage.shared.retrieveProfilePicture(for: user.identifier!) { data, error in
             if let data = data { userImageData = data }
         }
-        userLocation = user.locationIdentifier
-        userResources = user.resourceListIdentifier
+        //userLocation = user.locationIdentifier
+        //userResources = user.resourceListIdentifier
     }
     class var userFirstName: String {
         get {

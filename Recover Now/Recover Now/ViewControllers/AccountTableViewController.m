@@ -47,6 +47,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     if (indexPath.section == 3) {
         [[Accounts shared] logoutWithCompletion:^(NSError* error){}];
+        Accounts.userIdentifier = nil;
+        Accounts.userImageData = nil;
+        
+        //UI CHANGE
+        
     } else if (indexPath.section == 2) {
         UITableViewCell* currentCell = indexPath.row == 0 ? self.safeAndSoundCell : self.inNeedCell;
         UITableViewCell* otherCell = indexPath.row != 0 ? self.safeAndSoundCell : self.inNeedCell;

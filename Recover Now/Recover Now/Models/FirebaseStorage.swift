@@ -10,7 +10,7 @@ import UIKit
 import FirebaseStorage
 import Firebase
 
-class FirebaseStorage {
+@objc class FirebaseStorage: NSObject {
     
     ///The shared FirebaseStorage object
     static let shared = FirebaseStorage()
@@ -20,9 +20,10 @@ class FirebaseStorage {
     let TPProfilePictureMaxSize: Int64 = 4*1024*1024
     let TPPassPictureMaxSize: Int64 = 4*1024*1024
     
-    internal init() {
+    override init() {
         storage = Storage.storage()
         storageRef = storage.reference()
+        super.init()
     }
     
     var usersDirectoryReference: StorageReference {
@@ -53,8 +54,8 @@ class FirebaseStorage {
     }
     
     func retrieveProfilePictureForCurrentUser(_ handler: @escaping (Data?, Error?) -> Void) {
-        if let current = Accounts.shared.current?.uid {
-            retrieveProfilePicture(for: current, handler)
+        if let currentID = Accounts.userIdentifier {
+            retrieveProfilePicture(for: currentID, handler)
         }
     }
     

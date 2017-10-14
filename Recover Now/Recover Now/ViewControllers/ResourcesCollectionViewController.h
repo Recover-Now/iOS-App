@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView* activityIndicator;
 
+@property (nonatomic, strong) IBOutlet UIImageView* profileImageView;
+
 @end

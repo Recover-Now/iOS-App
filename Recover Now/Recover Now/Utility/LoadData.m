@@ -19,6 +19,7 @@
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_group_t dataGroup = dispatch_group_create();
         for (NSString* key in data.allKeys) {
+            NSLog(@"Found resource identifier");
             dispatch_group_async(dataGroup, queue, ^{
                 dispatch_semaphore_t sema = dispatch_semaphore_create(0);
                 FirebaseService* fbService2 = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNResource];
@@ -49,6 +50,7 @@
     }];
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
+    NSLog(@"Resources obtained; returning");
     return resources;
 }
 

@@ -24,6 +24,11 @@
     
     [FIRApp configure];
     
+    if (![Accounts userIsLoggedIn]) {
+        UIStoryboard* loginStoryboard = [UIStoryboard storyboardWithName:@"Login" bundle:NSBundle.mainBundle];
+        self.window.rootViewController = [loginStoryboard instantiateInitialViewController];
+    }
+    
     return YES;
 }
 

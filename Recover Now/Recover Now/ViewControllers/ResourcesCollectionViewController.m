@@ -16,6 +16,8 @@
 #import "ResourceDetailTableViewController.h"
 #import "ResourceCollectionViewCell.h"
 
+#import "Recover_Now-Swift.h"   ///<------------------------------------------------------
+
 @interface ResourcesCollectionViewController ()
 
 @end
@@ -45,9 +47,19 @@ static NSString * const reuseIdentifier = @"Cell";
     
     dispatch_async(dispatch_get_main_queue(), ^{
         self.resources = [[LoadData retrieveResourcesForLocation:[Accounts userLocation]] mutableCopy];
+        NSLog(@"Reloading collectionView");
         [self.collectionView reloadData];
         [self.activityIndicator stopAnimating];
     });
+    
+    [FirebaseStorage.shared retrieveProfilePictureForCurrentUser: ^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Could not retrieve profile picture %@", error);
+        } else {
+            Accounts.userImageData = data;
+            self.profileImageView.image = [[UIImage alloc] initWithData:data];
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -73,7 +73,7 @@ class LoginViewController: ManagedViewController {
             if success {
                 
                 //CHECK TO SEE IF EMAIL IS VERIFIED
-                if let current = Accounts.shared.current, !current.isEmailVerified {
+                /*if let current = Accounts.shared.current, !current.isEmailVerified {
                     self.showOptionsAlert("Email Not Yet Verified", message: "For your security, you must verify your email address before logging into your account", left: "Send Email Again", right: "OK", handlerOne: {
                         current.sendEmailVerification(completion: { error in
                             if let error = error {
@@ -86,10 +86,8 @@ class LoginViewController: ManagedViewController {
                     self.feedbackGenerator.notificationOccurred(.warning)
                     
                     return // ! -- CRITICAL -- !//
-                }
+                }*/
                 
-                
-                //RETRIEVE important account info to be saved in Core Data
                 let newUserService = FirebaseService(entity: "RNUser")
                 
                 newUserService.retrieveData(forIdentifier: Accounts.shared.current!.uid) { object in
@@ -176,7 +174,7 @@ class LoginViewController: ManagedViewController {
             self.textFieldSelected = false
 
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarController = storyBoard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+            let tabBarController = storyBoard.instantiateInitialViewController() as! UITabBarController
             
             let appDelegate = UIApplication.shared.delegate
             appDelegate!.window!?.rootViewController = tabBarController

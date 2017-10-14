@@ -89,23 +89,23 @@ enum FirebaseEntity: String {
         
         switch entity {
         case FirebaseEntity.RNUser:
-            let user = RNUser()
+            let user = RNUser(snapshot: snapshot)
             user.identifier = snapshot.key
             return user
             
         case .RNLocation:
-            let affiliation = RNLocation()
+            let affiliation = RNLocation(snapshot: snapshot)
             affiliation.identifier = snapshot.key
             //TODO
             return affiliation
             
         case .RNResource:
-            let location = RNResource()
+            let location = RNResource(snapshot: snapshot)
             location.identifier = snapshot.key
             return location
             
         case .RNRecoveryArea:
-            let pass = RNRecoveryArea()
+            let pass = RNRecoveryArea(snapshot: snapshot)
             pass.identifier = snapshot.key
             return pass
         
