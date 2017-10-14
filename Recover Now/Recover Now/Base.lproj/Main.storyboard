@@ -33,7 +33,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXz-nC-32L" customClass="CDCircularImageView" customModule="Recover_Now" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aXz-nC-32L" customClass="CDCircularImageView">
                                                     <rect key="frame" x="16" y="8" width="73.5" height="73.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="aXz-nC-32L" secondAttribute="height" multiplier="1:1" id="Kom-Kl-GvK"/>
@@ -164,6 +164,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailLabel" destination="AVd-4M-l62" id="0o5-tR-AmW"/>
+                        <outlet property="imageView" destination="aXz-nC-32L" id="Nkb-9h-w7y"/>
+                        <outlet property="inNeedCell" destination="egi-4g-0C0" id="W4C-Kr-eL4"/>
+                        <outlet property="location" destination="awD-yH-lgp" id="Okl-A5-5jm"/>
+                        <outlet property="nameLabel" destination="X2l-vH-9Km" id="Kgs-zp-v62"/>
+                        <outlet property="safeAndSoundCell" destination="ar6-rU-NDs" id="JAC-H6-G7S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csy-2Q-GfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,7 +359,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5" customClass="CDCircularImageView">
+                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5">
                                     <rect key="frame" x="332" y="38.5" width="35" height="35"/>
                                     <gestureRecognizers/>
                                     <constraints>
@@ -359,7 +367,7 @@
                                         <constraint firstAttribute="width" constant="35" id="J12-uu-Neu"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <real key="value" value="17.5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
