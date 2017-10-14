@@ -10,6 +10,7 @@
 #import "LoadData.h"
 #import "LocationManager.h"
 #import "Recover_Now-Swift.h"
+#import "SearchResultsTableViewController.h"
 
 @interface SearchTableViewController ()
 
@@ -20,8 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UITableViewController* searchResultsDisplay = [self.storyboard instantiateViewControllerWithIdentifier:@"searchController"];
+    SearchResultsTableViewController* searchResultsDisplay = [self.storyboard instantiateViewControllerWithIdentifier:@"searchResultsController"];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsDisplay];
+    self.definesPresentationContext = true;
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.placeholder = @"Resources & recovery areas";
@@ -37,7 +39,6 @@
     }
     
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
-    self.results = [[NSMutableArray<RNResource*> alloc] init];
     self.activityIndicator = [[UIActivityIndicatorView alloc] init];
     [self.activityIndicator setColor:MAIN_COLOR];
     [self.view addSubview:self.activityIndicator];
@@ -59,8 +60,8 @@
     
     [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
         [self.resources addObjectsFromArray:res];
-        [LoadData retrieveResourcesForLocation:location withCompletion:^(NSArray<RNResource *> * res) {
-            [self.resources addObjectsFromArray:res];
+        [LoadData retrieveRecoveryAreasForLocation:location withCompletion:^(NSArray<RNRecoveryArea *> * res2) {
+            [self.resources addObjectsFromArray:res2];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.activityIndicator stopAnimating];
             });
@@ -76,22 +77,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.results.count;
+    return 0;
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self.results removeAllObjects];
+    SearchResultsTableViewController* resultsVC = (SearchResultsTableViewController*)searchController.searchResultsController;
+    [resultsVC.results removeAllObjects];
     for (RNResource* res in self.resources) {
-        if ([[res.title lowercaseString] containsString:[searchText lowercaseString]]
-            || [[res.content lowercaseString] containsString: [searchText lowercaseString]]) {
-            [self.results addObject:res];
+        if ([[res.title lowercaseString] containsString:[searchController.searchBar.text lowercaseString]]
+            || [[res.content lowercaseString] containsString: [searchController.searchBar.text lowercaseString]]) {
+            [resultsVC.results addObject:res];
         }
     }
-    [self.tableView reloadData];
+    [resultsVC.tableView reloadData];
 }
 
 @end
