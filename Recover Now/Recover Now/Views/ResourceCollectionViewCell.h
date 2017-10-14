@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
 
-@interface ResourceCollectionViewCell : NSObject
+@interface ResourceCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UILabel* typeLabel;
 @property (nonatomic, strong) UILabel* distanceLabel;

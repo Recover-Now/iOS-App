@@ -33,6 +33,7 @@
 		AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */; };
 		AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091371F91C91500FFEF97 /* ContributeViewController.m */; };
 		AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AA1F924B6D0097AE67 /* LoadData.m */; };
+		AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		AFCD55A81F9245EE0097AE67 /* Recover_Now-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover_Now-Prefix.pch"; sourceTree = "<group>"; };
 		AFCD55A91F924B6D0097AE67 /* LoadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
 		AFCD55AA1F924B6D0097AE67 /* LoadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadData.m; sourceTree = "<group>"; };
+		AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceDetailTableViewController.h; sourceTree = "<group>"; };
+		AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */,
 				AF3091361F91C91500FFEF97 /* ContributeViewController.h */,
 				AF3091371F91C91500FFEF97 /* ContributeViewController.m */,
+				AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */,
+				AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				91A63BE11F91CED100D870B9 /* Accounts.swift in Sources */,
 				AF3091281F91C01F00FFEF97 /* FirebaseHandler.m in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
+				AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */,
 				91A63BE01F91CED100D870B9 /* FirebaseObjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
