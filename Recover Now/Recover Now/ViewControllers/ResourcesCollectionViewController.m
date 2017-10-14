@@ -75,9 +75,9 @@ bool requestingLocation = false;
     //Handle orientation change
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
     if (@available(iOS 11.0, *)) {
-        self.collectionView.contentInsetAdjustmentBehavior = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
-        self.collectionView.insetsLayoutMarginsFromSafeArea = true;
-        ((UICollectionViewFlowLayout *) self.collectionViewLayout).sectionInsetReference = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
+        //self.collectionView.contentInsetAdjustmentBehavior = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
+       //self.collectionView.insetsLayoutMarginsFromSafeArea = true;
+        //((UICollectionViewFlowLayout *) self.collectionViewLayout).sectionInsetReference = UICollectionViewFlowLayoutSectionInsetFromSafeArea;
     }
     
     //Status bar management
