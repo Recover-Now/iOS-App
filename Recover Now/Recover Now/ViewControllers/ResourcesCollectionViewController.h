@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "RNResource.h"
 
-@interface ResourcesCollectionViewController : UICollectionViewController
+@interface ResourcesCollectionViewController : UICollectionViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) NSMutableArray<RNResource*>* resources;
 

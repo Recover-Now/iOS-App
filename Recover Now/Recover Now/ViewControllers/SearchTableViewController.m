@@ -8,6 +8,7 @@
 
 #import "SearchTableViewController.h"
 #import "LoadData.h"
+#import "LocationManager.h"
 #import "Recover_Now-Swift.h"
 
 @interface SearchTableViewController ()
@@ -29,8 +30,14 @@
     [self.activityIndicator setHidesWhenStopped:true];
     [self.activityIndicator startAnimating];
     
+    CLLocation* userLocation = [LocationManager currentUserLocation];
+    if (!userLocation) {
+        [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
+        return;
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.resources = [[LoadData retrieveResourcesForLocation:[Accounts userLocation]] mutableCopy];
+        self.resources = [[LoadData retrieveResourcesForLocation:[LocationManager currentUserLocation]] mutableCopy];
         [self.tableView reloadData];
         [self.activityIndicator stopAnimating];
     });

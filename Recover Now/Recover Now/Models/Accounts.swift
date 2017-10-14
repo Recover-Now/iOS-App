@@ -167,22 +167,7 @@ extension Accounts {
             persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserEmail.rawValue)
         }
     }
-    class var userLocation: String {
-        get {
-            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserLocation.rawValue) as! String
-        }
-        set {
-            persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserLocation.rawValue)
-        }
-    }
-    class var userResources: String {
-        get {
-            return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserResourceList.rawValue) as! String
-        }
-        set {
-            persistUsingUserDefaults(newValue, forKey: TPUDKeys.TPUDkUserResourceList.rawValue)
-        }
-    }
+
     class var userInNeed: Bool {
         get {
             return getFromUserDefaults(withKey: TPUDKeys.TPUDkUserInNeed.rawValue) as! Bool

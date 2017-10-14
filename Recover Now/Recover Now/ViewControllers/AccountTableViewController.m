@@ -27,7 +27,9 @@
     self.nameLabel.text = [Accounts userName];
     self.emailLabel.text = [Accounts userEmail];
     self.imageView.image = [Accounts userImage];
-    self.location.text = [Accounts userLocation];
+    
+    //ADD self.location.text handling for label!!!!!!!!!!!!!!!!!!!!!!1
+
     if ([Accounts userInNeed]) {
         self.inNeedCell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {

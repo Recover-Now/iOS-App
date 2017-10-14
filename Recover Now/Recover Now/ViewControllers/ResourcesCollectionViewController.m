@@ -29,10 +29,15 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [FirebaseStorage.shared retrieveProfilePictureForCurrentUser: ^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Could not retrieve profile picture %@", error);
+        } else {
+            Accounts.userImageData = data;
+            self.profileImageView.image = [[UIImage alloc] initWithData:data];
+        }
+    }];
     
-    // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     
@@ -42,29 +47,44 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     self.resources = [[NSMutableArray<RNResource*> alloc] init];
-    [self.activityIndicator startAnimating];
     [self.activityIndicator setHidesWhenStopped:true];
     
+    LocationManager.locationManager.delegate = self;
+    CLLocation* userLocation = [LocationManager currentUserLocation];
+    if (!userLocation) {
+        [self showSimpleAlert:@"Current Location Unknown" message:@"Please visit Settings to allow access to your location." handler:nil];
+        return;
+    }
+    
+    [self.activityIndicator startAnimating];
+
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.resources = [[LoadData retrieveResourcesForLocation:[Accounts userLocation]] mutableCopy];
+        self.resources = [[LoadData retrieveResourcesForLocation: userLocation] mutableCopy];
         NSLog(@"Reloading collectionView");
         [self.collectionView reloadData];
         [self.activityIndicator stopAnimating];
     });
-    
-    [FirebaseStorage.shared retrieveProfilePictureForCurrentUser: ^(NSData * _Nullable data, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Could not retrieve profile picture %@", error);
-        } else {
-            Accounts.userImageData = data;
-            self.profileImageView.image = [[UIImage alloc] initWithData:data];
-        }
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.activityIndicator startAnimating];
+        
+        CLLocation* userLocation = [LocationManager currentUserLocation];
+        if (!userLocation) { return; }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resources = [[LoadData retrieveResourcesForLocation: userLocation] mutableCopy];
+            NSLog(@"Reloading collectionView");
+            [self.collectionView reloadData];
+            [self.activityIndicator stopAnimating];
+        });
+    }
 }
 
 
