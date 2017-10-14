@@ -7,7 +7,8 @@
 //
 
 #import "FirebaseObject.h"
+#import "RNResource.h"
 
-@interface RNRecoveryArea : FirebaseObject
+@interface RNRecoveryArea : RNResource
 
 @end

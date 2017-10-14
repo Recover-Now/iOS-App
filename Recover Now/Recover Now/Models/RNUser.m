@@ -12,4 +12,14 @@
 
 @synthesize email, firstName, lastName, resources, imageData;
 
+static RNUser* currentUser;
+
++ (RNUser*)currentUser {
+    return currentUser;
+}
+
++ (void)setCurrentUser:(RNUser*)user {
+    currentUser = user;
+}
+
 @end
