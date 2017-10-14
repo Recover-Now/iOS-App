@@ -326,7 +326,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="QrX-sQ-L4D">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="QrX-sQ-L4D" customClass="CollectionReusableView">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
@@ -367,6 +367,9 @@
                                 <constraint firstItem="oak-rD-JB5" firstAttribute="leading" secondItem="64m-3q-W1U" secondAttribute="trailing" constant="15" id="y0f-JN-hNm"/>
                                 <constraint firstItem="oU8-eG-frg" firstAttribute="trailing" secondItem="QrX-sQ-L4D" secondAttribute="trailingMargin" constant="-8" id="yVP-CZ-C7I"/>
                             </constraints>
+                            <connections>
+                                <outlet property="profileImageView" destination="oak-rD-JB5" id="vAH-oV-3yy"/>
+                            </connections>
                         </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="VCO-iC-j62" id="cDr-t7-eq7"/>
