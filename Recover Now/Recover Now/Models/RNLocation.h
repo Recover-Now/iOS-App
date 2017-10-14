@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString* state;
 @property (nonatomic, strong) NSString* country;
 
-@property (nonatomic, strong) NSArray<RNResource*>* resources;
+@property (nonatomic, strong) NSArray<NSString*>* resources;
+@property (nonatomic, strong) NSArray<NSString*>* recoveryAreas;
 
 @end

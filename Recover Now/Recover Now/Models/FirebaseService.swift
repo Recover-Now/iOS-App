@@ -110,7 +110,6 @@ enum FirebaseEntity: String {
             return pass
         
         }
-        return FirebaseObject() //DUMMY CODE
     }
 
 }
