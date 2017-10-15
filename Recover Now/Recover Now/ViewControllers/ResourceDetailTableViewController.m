@@ -16,6 +16,8 @@
 
 @implementation ResourceDetailTableViewController
 
+@synthesize nfcSession;
+
 double distance = -1;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -119,5 +121,38 @@ double distance = -1;
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
+
+
+# pragma begin NFC reading logic
+
+-(IBAction)checkInPressed: (id)sender {
+    self.nfcSession = [[NFCNDEFReaderSession alloc] initWithDelegate:self queue:nil invalidateAfterFirstRead:true];
+    if (@available(iOS 11.0, *)) {
+        if (!NFCNDEFReaderSession.readingAvailable) {
+            [self showSimpleAlert:@"Device Not Supported" message:@"This device does not support checking in via NFC Code." handler:nil];
+            return;
+        }
+        self.nfcSession.alertMessage = @"Hold iPhone near a Recovery Location tag.";
+        [self.nfcSession beginSession];
+    } else {
+        [self showSimpleAlert:@"Upgrade to iOS 11 to be able to check in via NFC tag." message:nil handler:nil];
+    }
+}
+
+-(void)readerSession:(NFCNDEFReaderSession *)session didDetectNDEFs:(NSArray<NFCNDEFMessage *> *)messages {
+    NSLog(@"NFC Reading returned something!!");
+    NFCNDEFPayload* message = [[[messages objectAtIndex:0] records] objectAtIndex:0];
+    NSData* data = message.payload;
+    NSString* string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(string);
+}
+
+-(void)readerSession:(NFCNDEFReaderSession *)session didInvalidateWithError:(NSError *)error {
+    if (!error) { return; }
+    //[self showSimpleAlert:@"Unable to Check In via scan" message:@"An error occurred while trying to scan the information to check you in." handler:nil];
+}
+
 
 @end

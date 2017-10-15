@@ -10,8 +10,9 @@
 #import "RNResource.h"
 #import <MapKit/MapKit.h>
 #import <MessageUI/MessageUI.h>
+#import <CoreNFC/CoreNFC.h>
 
-@interface ResourceDetailTableViewController : UITableViewController <MFMessageComposeViewControllerDelegate>
+@interface ResourceDetailTableViewController : UITableViewController <MFMessageComposeViewControllerDelegate, NFCNDEFReaderSessionDelegate>
 
 @property (nonatomic, strong) RNResource* resource;
 @property (nonatomic) bool shouldShowCloseButton;
@@ -22,6 +23,9 @@
 @property (nonatomic, weak) IBOutlet UILabel* phoneLabel;
 @property (nonatomic, weak) IBOutlet MKMapView* mapView;
 
+@property (nonatomic, strong) NFCNDEFReaderSession* nfcSession;
+
 -(IBAction)onDonePressed: (id)sender;
+-(IBAction)checkInPressed: (id)sender;
 
 @end

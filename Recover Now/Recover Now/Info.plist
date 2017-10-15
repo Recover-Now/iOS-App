@@ -30,6 +30,8 @@
 	<string>Recover Now would like to help you find resources closest to your location.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Recover Now would like to make your user experience more personal.</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>Recovery Area tag.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
