@@ -8,13 +8,17 @@
 
 #import "ResourceTableViewCell.h"
 #import "RNResource.h"
+#import "RNRecoveryArea.h"
 
 @implementation ResourceTableViewCell
 
 - (void)decorateForResource: (RNResource*)resource {
     self.descriptionLabel.text = resource.content;
-    self.resourceTitleLabel.text = resource.title;
-    NSString* categoryName = resource.categoryDescription;
+    if ([resource isKindOfClass:[RNRecoveryArea class]]) {
+        self.resourceTitleLabel.text = [NSString stringWithFormat:@"Recovery Area: %@", resource.title];
+    } else {
+        self.resourceTitleLabel.text = resource.title;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

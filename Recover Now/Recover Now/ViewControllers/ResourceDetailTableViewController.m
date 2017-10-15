@@ -33,7 +33,11 @@ double distance = -1;
     
     self.titleLabel.text = self.resource.title;
     self.descLabel.text = self.resource.content;
-    self.navigationItem.title = self.resource.categoryDescription;
+    if ([self.resource isKindOfClass:[RNRecoveryArea class]]) {
+        self.navigationItem.title = @"Recovery Area";
+    } else {
+        self.navigationItem.title = self.resource.categoryDescription;
+    }
     if (!self.shouldShowCloseButton) {
         self.navigationItem.rightBarButtonItem = nil;
     }

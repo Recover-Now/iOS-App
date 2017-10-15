@@ -9,11 +9,16 @@
 #import "ResourceCollectionViewCell.h"
 #import <Foundation/Foundation.h>
 #import "LocationManager.h"
+#import "RNRecoveryArea.h"
 
 @implementation ResourceCollectionViewCell
 
 - (void) decorateForResource: (RNResource*) resource {
-    self.typeLabel.text = resource.categoryDescription;
+    if ([resource isKindOfClass:[RNRecoveryArea class]]) {
+        self.typeLabel.text = @"Recovery Area";
+    } else {
+        self.typeLabel.text = resource.categoryDescription;
+    }
     self.imageView.image = [UIImage imageNamed:@"Water"];
     self.distanceLabel.text = @"—";
     
