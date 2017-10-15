@@ -84,6 +84,24 @@ bool requestingLocation = false;
     self.topBar = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].statusBarFrame];
     self.topBar.backgroundColor = UIColor.whiteColor;
     [self.view addSubview:self.topBar];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onResourceCreated) name:kNotificationNameDidCreateResource object:nil];
+}
+
+- (void)onResourceCreated {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.resources = [[NSMutableArray<RNResource*> alloc] init];
+        [self.collectionView reloadData];
+        [self.activityIndicator setHidden:false];
+        NSString* currentLocation = [LocationManager currentUserLocation];
+        if (currentLocation) {
+            [self loadData:currentLocation];
+        } else {
+            NSLog(@"No location on load, showing no data state");
+            [self.activityIndicator setHidden:true];
+            [self showNoDataState];
+        }
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {

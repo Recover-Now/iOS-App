@@ -55,6 +55,23 @@
     
     [self loadData:userLocation];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onResourceCreated) name:kNotificationNameDidCreateResource object:nil];
+}
+
+- (void)onResourceCreated {
+    NSString* userLocation = [LocationManager currentUserLocation];
+    if (!userLocation) {
+        NSLog(@"WARNING -- No location to use for search results");
+        return;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.resources = [[NSMutableArray<RNResource*> alloc] init];
+        SearchResultsTableViewController* resultsTVC = ((SearchResultsTableViewController*)self.searchController.searchResultsController);
+        resultsTVC.results = [[NSMutableArray<RNResource*> alloc] init];
+        [resultsTVC.tableView reloadData];
+        [self.activityIndicator setHidden:false];
+        [self loadData:userLocation];
+    });
 }
 
 - (void)loadData:(NSString*) location {

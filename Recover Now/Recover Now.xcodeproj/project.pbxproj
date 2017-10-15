@@ -43,6 +43,7 @@
 		AF3091351F91C6CD00FFEF97 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091341F91C6CD00FFEF97 /* AccountTableViewController.m */; };
 		AF3091381F91C91500FFEF97 /* ContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3091371F91C91500FFEF97 /* ContributeViewController.m */; };
 		AF3D4CF91F92B55200F0EB56 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3D4CF81F92B55200F0EB56 /* SearchResultsTableViewController.m */; };
+		AF6542681F9374C200F19F69 /* DonateTileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6542671F9374C200F19F69 /* DonateTileCollectionViewCell.m */; };
 		AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AA1F924B6D0097AE67 /* LoadData.m */; };
 		AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */; };
 		AFFC4AC91F9317F30020AC6E /* MyResourcesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */; };
@@ -113,6 +114,8 @@
 		AF3091391F91D47B00FFEF97 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AF3D4CF71F92B55200F0EB56 /* SearchResultsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultsTableViewController.h; sourceTree = "<group>"; };
 		AF3D4CF81F92B55200F0EB56 /* SearchResultsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTableViewController.m; sourceTree = "<group>"; };
+		AF6542661F9374C200F19F69 /* DonateTileCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateTileCollectionViewCell.h; sourceTree = "<group>"; };
+		AF6542671F9374C200F19F69 /* DonateTileCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateTileCollectionViewCell.m; sourceTree = "<group>"; };
 		AFCD55A81F9245EE0097AE67 /* Recover_Now-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover_Now-Prefix.pch"; sourceTree = "<group>"; };
 		AFCD55A91F924B6D0097AE67 /* LoadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
 		AFCD55AA1F924B6D0097AE67 /* LoadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadData.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 		AF2C26EA1F92A0030040B93C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF6542661F9374C200F19F69 /* DonateTileCollectionViewCell.h */,
+				AF6542671F9374C200F19F69 /* DonateTileCollectionViewCell.m */,
 				AF2C26E21F929FED0040B93C /* CDCircularImageView.h */,
 				AF2C26DE1F929FEB0040B93C /* CDCircularImageView.m */,
 				AF2C26E31F929FED0040B93C /* CDImageView.h */,
@@ -433,6 +438,7 @@
 				AFFC4ACC1F9318950020AC6E /* DonateCollectionViewController.m in Sources */,
 				91DBE8D91F92503D0024EC05 /* CPTextFieldManager.swift in Sources */,
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
+				AF6542681F9374C200F19F69 /* DonateTileCollectionViewCell.m in Sources */,
 				AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */,
 				91DBE8CD1F924FB70024EC05 /* LoginViewController.swift in Sources */,
 				AF2C26E81F929FED0040B93C /* CollectionReusableView.m in Sources */,
