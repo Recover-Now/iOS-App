@@ -29,6 +29,12 @@ extension RNRecoveryArea {
     }
 }
 
+extension RNUser {
+    override var dictionaryForm: [String: Any] {
+        return self.dictionaryWithValues(forKeys: ["phoneNumber", "firstName", "lastName"])
+    }
+}
+
 
 /// A functionally abstract class to manage all Firebases-stored data objects (entities)
 extension FirebaseObject {

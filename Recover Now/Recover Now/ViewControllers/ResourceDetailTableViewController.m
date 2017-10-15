@@ -8,6 +8,7 @@
 
 #import "ResourceDetailTableViewController.h"
 #import "LocationManager.h"
+#import "Recover_Now-Swift.h"
 
 @interface ResourceDetailTableViewController ()
 
@@ -15,12 +16,34 @@
 
 @implementation ResourceDetailTableViewController
 
+double distance = -1;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.titleLabel.text = self.resource.title;
     self.descLabel.text = self.resource.content;
     self.navigationItem.title = self.resource.categoryDescription;
+    CLLocation* userLoc = [LocationManager currentCoordinateLocation];
+    if ((self.resource.latitude != 0 || self.resource.longitude != 0) && userLoc) {
+        [self.mapView setShowsUserLocation:true];
+        CLLocation* resourceLocation = [[CLLocation alloc] initWithLatitude:self.resource.latitude longitude:self.resource.longitude];
+        distance = [resourceLocation distanceFromLocation:userLoc];
+        [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(self.resource.latitude, self.resource.longitude), MKCoordinateSpanMake(distance / 111000 * 3, distance / 111000 * 3))];
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        [annotation setCoordinate:resourceLocation.coordinate];
+        [self.mapView addAnnotation:annotation];
+        self.mapView.userInteractionEnabled = false;
+    }
+    
+    FirebaseService *fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNUser];
+    [fbService retrieveDataForIdentifier:self.resource.poster completion:^(FirebaseObject * _Nonnull obj) {
+        RNUser* user = (RNUser*)obj;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.providerLabel.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+            self.phoneLabel.text = user.phoneNumber;
+        });
+    }];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -28,15 +51,10 @@
         return [super tableView:tableView titleForHeaderInSection:section];
     }
     
-    CLLocation* userLoc = [LocationManager currentCoordinateLocation];
-    
-    if (self.resource.latitude == 0 && self.resource.longitude == 0 && userLoc) {
+    if (distance == -1) {
         return @"Location Unavailable";
     }
     
-    
-    CLLocation* resourceLocation = [[CLLocation alloc] initWithLatitude:self.resource.latitude longitude:self.resource.longitude];
-    double distance = [resourceLocation distanceFromLocation:userLoc];
     int kmDistance = (int) distance / 1000;
     return [NSString stringWithFormat:@"%ikm from Your Location", kmDistance];
 }

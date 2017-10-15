@@ -568,6 +568,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descLabel" destination="7gE-Sn-ZnE" id="sri-Je-DJI"/>
+                        <outlet property="mapView" destination="Z6M-A6-IgH" id="dSO-Ly-bYP"/>
+                        <outlet property="phoneLabel" destination="fCi-JR-ZhL" id="4un-0F-Knw"/>
+                        <outlet property="providerLabel" destination="ghm-Qb-sdw" id="nfB-BT-Af9"/>
+                        <outlet property="titleLabel" destination="1im-AZ-cRW" id="mRF-Uo-rdA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crA-VV-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
