@@ -7,6 +7,7 @@
 //
 
 #import "ResourceDetailTableViewController.h"
+#import "LocationManager.h"
 
 @interface ResourceDetailTableViewController ()
 
@@ -17,11 +18,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.titleLabel.text = self.resource.title;
+    self.descLabel.text = self.resource.content;
+    self.navigationItem.title = self.resource.categoryDescription;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section != 1) {
+        return [super tableView:tableView titleForHeaderInSection:section];
+    }
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    CLLocation* userLoc = [LocationManager currentCoordinateLocation];
+    
+    if (self.resource.latitude == 0 && self.resource.longitude == 0 && userLoc) {
+        return @"Location Unavailable";
+    }
+    
+    
+    CLLocation* resourceLocation = [[CLLocation alloc] initWithLatitude:self.resource.latitude longitude:self.resource.longitude];
+    double distance = [resourceLocation distanceFromLocation:userLoc];
+    int kmDistance = (int) distance / 1000;
+    return [NSString stringWithFormat:@"%ikm from Your Location", kmDistance];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 -(IBAction)onDonePressed: (id)sender {

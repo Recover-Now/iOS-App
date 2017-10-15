@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
+#import <MapKit/MapKit.h>
 
 @interface ResourceDetailTableViewController : UITableViewController
 
 @property (nonatomic, strong) RNResource* resource;
+
+@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel* descLabel;
+@property (nonatomic, weak) IBOutlet UILabel* providerLabel;
+@property (nonatomic, weak) IBOutlet UILabel* phoneLabel;
+@property (nonatomic, weak) IBOutlet MKMapView* mapView;
 
 -(IBAction)onDonePressed: (id)sender;
 
