@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UIView* embedView;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 - (IBAction)onSegmentedControlChange:(id)sender;
 
 @end
