@@ -39,6 +39,7 @@ double distance = -1;
     }
     CLLocation* userLoc = [LocationManager currentCoordinateLocation];
     if ((self.resource.latitude != 0 || self.resource.longitude != 0) && userLoc) {
+        NSLog(@"Setting up map");
         [self.mapView setShowsUserLocation:true];
         CLLocation* resourceLocation = [[CLLocation alloc] initWithLatitude:self.resource.latitude longitude:self.resource.longitude];
         distance = [resourceLocation distanceFromLocation:userLoc];
@@ -47,6 +48,8 @@ double distance = -1;
         [annotation setCoordinate:resourceLocation.coordinate];
         [self.mapView addAnnotation:annotation];
         self.mapView.userInteractionEnabled = false;
+    } else {
+        distance = -1;
     }
     
     FirebaseService *fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNUser];
@@ -57,6 +60,8 @@ double distance = -1;
             self.phoneLabel.text = user.phoneNumber;
         });
     }];
+    
+    [self.tableView reloadData];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
