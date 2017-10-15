@@ -9,6 +9,7 @@
 #import "ContributeViewController.h"
 #import "MyResourcesTableViewController.h"
 #import "DonateCollectionViewController.h"
+#import "CreateResourceTableViewController.h"
 
 @interface ContributeViewController ()
 
@@ -27,9 +28,19 @@ DonateCollectionViewController* donateVC;
     [self addChildViewController:myResourcesVC];
     [self.embedView addSubview:myResourcesVC.view];
     [myResourcesVC didMoveToParentViewController:self];
+    self.navigationItem.title = @"Contributions";
     
     self.navigationItem.titleView = self.segmentControl;
     self.segmentControl.frame = self.navigationItem.titleView.frame;
+    
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButtonTap)];
+    self.navigationItem.rightBarButtonItem = self.addButton;
+}
+
+- (void)onAddButtonTap {
+    CreateResourceTableViewController* createVC = [self.storyboard instantiateViewControllerWithIdentifier:@"createResourceVC"];
+    createVC.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:createVC animated:true completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +59,8 @@ DonateCollectionViewController* donateVC;
             } completion:^(BOOL finished) {
                 [donateVC removeFromParentViewController];
                 [myResourcesVC didMoveToParentViewController:self];
+                self.navigationItem.rightBarButtonItem = self.addButton;
+                self.navigationItem.title = @"Contributions";
             }];
         } else if (segmentedControl.selectedSegmentIndex == 1) {
             [myResourcesVC willMoveToParentViewController:nil];
@@ -58,21 +71,11 @@ DonateCollectionViewController* donateVC;
             } completion:^(BOOL finished) {
                 [myResourcesVC removeFromParentViewController];
                 [donateVC didMoveToParentViewController:self];
+                self.navigationItem.rightBarButtonItem = nil;
+                self.navigationItem.title = @"Donate";
             }];
             
         }
-    }
-}
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showEmbeddedResources"]) {
-        
-    } else if ([segue.identifier isEqualToString:@"showEmbeddedDonate"]) {
-        
     }
 }
 
