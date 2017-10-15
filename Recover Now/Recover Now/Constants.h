@@ -11,6 +11,8 @@
 
 #define kUserDefaultsLocationKey @"RNUserDefaultsLocationKey"
 
+#define kNotificationNameDidCreateResource @"RNNotificationNameDidCreateResource"
+
 #define kFirebaseEntityRNUser                   @"RNUser"
 #define kFirebaseEntityRNUserResourceList       @"RNUserResourceList"
 #define kFirebaseEntityRNUserRecoveryAreaList   @"RNUserRecoveryAreaList"

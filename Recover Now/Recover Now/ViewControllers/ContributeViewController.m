@@ -35,12 +35,22 @@ DonateCollectionViewController* donateVC;
     
     self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onAddButtonTap)];
     self.navigationItem.rightBarButtonItem = self.addButton;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onResourceCreated) name:kNotificationNameDidCreateResource object:nil];
+}
+
+- (void)onResourceCreated {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        myResourcesVC.resources = [[NSMutableArray<RNResource*> alloc] init];
+        [myResourcesVC.tableView reloadData];
+        [myResourcesVC loadData];
+    });
 }
 
 - (void)onAddButtonTap {
-    CreateResourceTableViewController* createVC = [self.storyboard instantiateViewControllerWithIdentifier:@"createResourceVC"];
-    createVC.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:createVC animated:true completion:nil];
+    UINavigationController* createVCNav = [self.storyboard instantiateViewControllerWithIdentifier:@"createResourceVCNav"];
+    createVCNav.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:createVCNav animated:true completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
