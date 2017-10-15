@@ -14,8 +14,13 @@
 
 - (void)decorateForResource: (RNResource*)resource {
     self.descriptionLabel.text = resource.content;
+    NSInteger categoryNum = resource.category;
+    NSString* strRand = [NSString stringWithFormat:@"RNIcon%i", categoryNum];
+    self.iconImageView.image = [UIImage imageNamed:strRand];
+    
     if ([resource isKindOfClass:[RNRecoveryArea class]]) {
         self.resourceTitleLabel.text = [NSString stringWithFormat:@"Recovery Area: %@", resource.title];
+        self.iconImageView.image = [UIImage imageNamed:@"RNIconRecovery"];
     } else {
         self.resourceTitleLabel.text = resource.title;
     }
