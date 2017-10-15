@@ -25,6 +25,10 @@
     NSString* strRand = [NSString stringWithFormat:@"RN%i%i", categoryNum, rand];
     self.imageView.image = [UIImage imageNamed:strRand];
     
+    if ([resource isKindOfClass:[RNRecoveryArea class]]) {
+        self.imageView.image = [UIImage imageNamed:@"RNRecovery"];
+    }
+    
     self.distanceLabel.text = @"—";
     CLLocation* userLocation = [LocationManager currentCoordinateLocation];
 

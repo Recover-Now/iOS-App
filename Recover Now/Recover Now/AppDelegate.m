@@ -69,7 +69,7 @@
         [fbService retrieveDataForIdentifier:identifier completion:^(FirebaseObject * _Nonnull obj) {
             RNResource* res = (RNResource*)obj;
             UINavigationController* navVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"resourceDetailVCNav"];
-            navVC.modalPresentationStyle = UIModalPresentationPageSheet;
+            navVC.modalPresentationStyle = UIModalPresentationFormSheet;
             ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = res;
             [self.window.rootViewController presentViewController:navVC animated:true completion:nil];
         }];
