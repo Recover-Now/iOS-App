@@ -11,11 +11,12 @@
 
 #define kUserDefaultsLocationKey @"RNUserDefaultsLocationKey"
 
-#define kFirebaseEntityRNUser               @"RNUser"
-#define kFirebaseEntityRNUserResourceList   @"RNUserResourceList"
-#define kFirebaseEntityRNLocation           @"RNLocation"
-#define kFirebaseEntityRNRecoveryArea       @"RNRecoveryArea"
-#define kFirebaseEntityRNResource           @"RNResource"
+#define kFirebaseEntityRNUser                   @"RNUser"
+#define kFirebaseEntityRNUserResourceList       @"RNUserResourceList"
+#define kFirebaseEntityRNUserRecoveryAreaList   @"RNUserRecoveryAreaList"
+#define kFirebaseEntityRNLocation               @"RNLocation"
+#define kFirebaseEntityRNRecoveryArea           @"RNRecoveryArea"
+#define kFirebaseEntityRNResource               @"RNResource"
 
 #define IS_LOGGED_IN ([[NSUserDefaults standardUserDefaults] objectForKey:@"TPUDkUserIdenfitier"] != nil)
 

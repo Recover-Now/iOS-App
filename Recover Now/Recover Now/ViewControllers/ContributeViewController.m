@@ -7,6 +7,8 @@
 //
 
 #import "ContributeViewController.h"
+#import "MyResourcesTableViewController.h"
+#import "DonateCollectionViewController.h"
 
 @interface ContributeViewController ()
 
@@ -14,9 +16,20 @@
 
 @implementation ContributeViewController
 
+MyResourcesTableViewController* myResourcesVC;
+DonateCollectionViewController* donateVC;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    myResourcesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"myResourcesVC"];
+    donateVC = [self.storyboard instantiateViewControllerWithIdentifier:@"donateVC"];
+    
+    [self addChildViewController:myResourcesVC];
+    [self.embedView addSubview:myResourcesVC.view];
+    [myResourcesVC didMoveToParentViewController:self];
+    
+    self.navigationItem.titleView = self.segmentControl;
+    self.segmentControl.frame = self.navigationItem.titleView.frame;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,10 +41,25 @@
     if ([sender isKindOfClass:[UISegmentedControl class]]) {
         UISegmentedControl* segmentedControl = sender;
         if (segmentedControl.selectedSegmentIndex == 0) {
-            
-            [UIStoryboardSegue segueWithIdentifier:@"showEmbedResources" source:self.embedView destination:nil performHandler:nil];
+            [donateVC willMoveToParentViewController:nil];
+            [self addChildViewController:myResourcesVC];
+            [self transitionFromViewController:donateVC toViewController:myResourcesVC duration:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                
+            } completion:^(BOOL finished) {
+                [donateVC removeFromParentViewController];
+                [myResourcesVC didMoveToParentViewController:self];
+            }];
         } else if (segmentedControl.selectedSegmentIndex == 1) {
-            [self performSegueWithIdentifier:@"showEmbeddedDonate" sender:self];
+            [myResourcesVC willMoveToParentViewController:nil];
+            [self addChildViewController:donateVC];
+            [donateVC didMoveToParentViewController:self];
+            [self transitionFromViewController:myResourcesVC toViewController:donateVC duration:0.0 options:UIViewAnimationOptionTransitionNone animations:^{
+                
+            } completion:^(BOOL finished) {
+                [myResourcesVC removeFromParentViewController];
+                [donateVC didMoveToParentViewController:self];
+            }];
+            
         }
     }
 }

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RNResource.h"
 
 @interface MyResourcesTableViewController : UITableViewController
+
+@property (strong, nonatomic) NSMutableArray<RNResource*>* resources;
+
+@property (nonatomic, strong) UIActivityIndicatorView* activityIndicator;
 
 @end
