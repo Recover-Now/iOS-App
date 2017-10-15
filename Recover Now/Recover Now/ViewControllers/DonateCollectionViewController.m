@@ -51,7 +51,7 @@
     DonateTileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"donateCell" forIndexPath:indexPath];
     
     // Configure the cell
-    [cell decorateCellWithID:(int)indexPath.row];
+    [cell decorateCellWithID:(int) indexPath.row];
     cell.myContainer = self;
     
     return cell;

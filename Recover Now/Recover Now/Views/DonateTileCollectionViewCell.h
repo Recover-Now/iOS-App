@@ -16,6 +16,6 @@
 
 - (IBAction)onDonateButtonPress:(id)sender;
 
-- (void)decorateCellWithID:(UIButton*)number;
+- (void)decorateCellWithID:(int)number;
 
 @end
