@@ -1016,7 +1016,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="68n-81-9Dt">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="donateCell" id="68n-81-9Dt" customClass="DonateTileCollectionViewCell">
                                 <rect key="frame" x="4.5" y="0.0" width="366" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1030,18 +1030,45 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="366" height="186"/>
                                                 </imageView>
                                                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XC-wA-R3U">
-                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="186"/>
+                                                    <rect key="frame" x="-0.5" y="0.0" width="366" height="186"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fet-B4-LpM">
+                                                    <rect key="frame" x="220" y="136" width="128" height="32"/>
+                                                    <color key="backgroundColor" name="MainTint"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Fet-B4-LpM" secondAttribute="height" multiplier="4:1" id="okg-5u-AUK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <state key="normal" title="DONATE NOW">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disaster Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efp-V4-Dqe">
+                                                    <rect key="frame" x="18" y="18" width="330" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="efp-V4-Dqe" secondAttribute="trailing" constant="10" id="2iC-yG-99w"/>
                                                 <constraint firstItem="3XC-wA-R3U" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="top" id="BVc-Xq-hPA"/>
                                                 <constraint firstAttribute="trailing" secondItem="kQ4-Pn-l2Q" secondAttribute="trailing" id="CNB-6c-3PT"/>
                                                 <constraint firstItem="kQ4-Pn-l2Q" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="top" id="OpT-eA-P66"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fet-B4-LpM" secondAttribute="bottom" constant="10" id="PXD-DS-gyI"/>
                                                 <constraint firstItem="kQ4-Pn-l2Q" firstAttribute="leading" secondItem="s3W-9Y-JcI" secondAttribute="leading" id="Rob-Hi-7Hb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fet-B4-LpM" secondAttribute="trailing" constant="10" id="U7D-jB-JdN"/>
                                                 <constraint firstAttribute="trailing" secondItem="3XC-wA-R3U" secondAttribute="trailing" id="Vlp-W8-eMg"/>
                                                 <constraint firstItem="3XC-wA-R3U" firstAttribute="leading" secondItem="s3W-9Y-JcI" secondAttribute="leading" id="bxL-uJ-JJ5"/>
+                                                <constraint firstItem="efp-V4-Dqe" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="topMargin" constant="10" id="eVd-b4-0h2"/>
+                                                <constraint firstItem="efp-V4-Dqe" firstAttribute="leading" secondItem="s3W-9Y-JcI" secondAttribute="leadingMargin" constant="10" id="lWU-eF-PWO"/>
                                                 <constraint firstAttribute="bottom" secondItem="3XC-wA-R3U" secondAttribute="bottom" id="mZS-Pe-00v"/>
                                                 <constraint firstAttribute="bottom" secondItem="kQ4-Pn-l2Q" secondAttribute="bottom" id="ylq-xk-HE5"/>
                                             </constraints>
@@ -1212,6 +1239,9 @@
         <image name="RNIcon3" width="640" height="460"/>
         <image name="RNIcon4" width="112" height="90"/>
         <image name="Water" width="350" height="437"/>
+        <namedColor name="MainTint">
+            <color red="0.92000001668930054" green="0.26899999380111694" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="MainTint">
             <color red="0.92000001668930054" green="0.26899999380111694" blue="0.3529999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

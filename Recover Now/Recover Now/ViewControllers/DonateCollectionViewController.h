@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DonateCollectionViewController : UICollectionViewController
+@interface DonateCollectionViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout>
 
 @end
