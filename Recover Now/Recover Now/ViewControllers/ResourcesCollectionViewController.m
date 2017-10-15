@@ -46,7 +46,7 @@ bool requestingLocation = false;
         }
     }];
     
-    CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 24.0 : 16.0;
+    CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 24.0 : 20.0;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, inset, 0, inset);
     
     LocationManager.locationManager.delegate = self;
