@@ -21,7 +21,7 @@
     
     // Do any additional setup after loading the view.
     CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 24.0 : 16.0;
-    self.collectionView.contentInset = UIEdgeInsetsMake(0.0, inset, inset, inset);
+    self.collectionView.contentInset = UIEdgeInsetsMake(inset, inset, inset, inset);
     
 }
 
@@ -53,7 +53,11 @@
     // Configure the cell
     [cell decorateCellWithID:(int) indexPath.row];
     cell.myContainer = self;
-    
+    cell.layer.masksToBounds = false;
+    UIView* roundedView = [[cell subviews] firstObject];
+    //[cell shadow];
+    roundedView.layer.cornerRadius = cell.frame.size.height / 10.0;
+    roundedView.layer.masksToBounds = true;
     return cell;
 }
 

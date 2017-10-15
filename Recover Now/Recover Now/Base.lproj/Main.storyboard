@@ -1005,7 +1005,7 @@
         <scene sceneID="NJV-iD-Gbs">
             <objects>
                 <collectionViewController storyboardIdentifier="donateVC" id="FRI-dC-gXS" customClass="DonateCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" dataMode="prototypes" springLoaded="YES" id="fu8-tg-Pp4">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" springLoaded="YES" id="fu8-tg-Pp4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1013,7 +1013,7 @@
                             <size key="itemSize" width="366" height="186"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="donateCell" id="68n-81-9Dt" customClass="DonateTileCollectionViewCell">
@@ -1048,10 +1048,13 @@
                                                             <integer key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onDonateButtonPress:" destination="68n-81-9Dt" eventType="touchUpInside" id="cOR-Re-9V6"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disaster Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efp-V4-Dqe">
-                                                    <rect key="frame" x="18" y="18" width="330" height="48"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                                    <rect key="frame" x="18" y="18" width="330" height="44.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="37"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1081,6 +1084,15 @@
                                     <constraint firstAttribute="bottom" secondItem="s3W-9Y-JcI" secondAttribute="bottom" id="QiJ-IN-yLg"/>
                                     <constraint firstItem="s3W-9Y-JcI" firstAttribute="top" secondItem="68n-81-9Dt" secondAttribute="top" id="voC-St-QTS"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="backgroundImageView" destination="kQ4-Pn-l2Q" id="5o9-Ib-q1l"/>
+                                    <outlet property="titleLabel" destination="efp-V4-Dqe" id="r72-T4-nxG"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
