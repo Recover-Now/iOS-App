@@ -10,6 +10,8 @@
 #import "MyResourcesTableViewController.h"
 #import "DonateCollectionViewController.h"
 #import "CreateResourceTableViewController.h"
+#import "LocationManager.h"
+#import "Recover_Now-Swift.h"
 
 @interface ContributeViewController ()
 
@@ -48,6 +50,10 @@ DonateCollectionViewController* donateVC;
 }
 
 - (void)onAddButtonTap {
+    if (![LocationManager currentUserLocation]) {
+        [self showSimpleAlert:@"Error" message:@"You must have location services enabled to contribute resources" handler:nil];
+        return;
+    }
     UINavigationController* createVCNav = [self.storyboard instantiateViewControllerWithIdentifier:@"createResourceVCNav"];
     createVCNav.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:createVCNav animated:true completion:nil];
