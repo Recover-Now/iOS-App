@@ -109,6 +109,7 @@ double distance = -1;
         MFMessageComposeViewController* compose = [[MFMessageComposeViewController alloc] init];
         compose.messageComposeDelegate = self;
         [compose setRecipients:@[self.phoneLabel.text]];
+        compose.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentViewController:compose animated:true completion:nil];
     } else if (indexPath.section == 1) {
         
