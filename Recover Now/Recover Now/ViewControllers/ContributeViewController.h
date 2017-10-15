@@ -10,6 +10,8 @@
 
 @interface ContributeViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView* embedView;
+
 - (IBAction)onSegmentedControlChange:(id)sender;
 
 @end

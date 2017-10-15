@@ -28,7 +28,8 @@
     if ([sender isKindOfClass:[UISegmentedControl class]]) {
         UISegmentedControl* segmentedControl = sender;
         if (segmentedControl.selectedSegmentIndex == 0) {
-            [self performSegueWithIdentifier:@"showEmbeddedResources" sender:self];
+            
+            [UIStoryboardSegue segueWithIdentifier:@"showEmbedResources" source:self.embedView destination:nil performHandler:nil];
         } else if (segmentedControl.selectedSegmentIndex == 1) {
             [self performSegueWithIdentifier:@"showEmbeddedDonate" sender:self];
         }

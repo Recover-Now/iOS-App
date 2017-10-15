@@ -45,6 +45,8 @@
 		AF3D4CF91F92B55200F0EB56 /* SearchResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3D4CF81F92B55200F0EB56 /* SearchResultsTableViewController.m */; };
 		AFCD55AB1F924B6D0097AE67 /* LoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AA1F924B6D0097AE67 /* LoadData.m */; };
 		AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */; };
+		AFFC4AC91F9317F30020AC6E /* MyResourcesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */; };
+		AFFC4ACC1F9318950020AC6E /* DonateCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +117,10 @@
 		AFCD55AA1F924B6D0097AE67 /* LoadData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadData.m; sourceTree = "<group>"; };
 		AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceDetailTableViewController.h; sourceTree = "<group>"; };
 		AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailTableViewController.m; sourceTree = "<group>"; };
+		AFFC4AC71F9317F30020AC6E /* MyResourcesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyResourcesTableViewController.h; sourceTree = "<group>"; };
+		AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourcesTableViewController.m; sourceTree = "<group>"; };
+		AFFC4ACA1F9318950020AC6E /* DonateCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateCollectionViewController.h; sourceTree = "<group>"; };
+		AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +259,10 @@
 				91DBE8D51F92503D0024EC05 /* CEViewController.swift */,
 				AFCD55AC1F92504C0097AE67 /* ResourceDetailTableViewController.h */,
 				AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */,
+				AFFC4AC71F9317F30020AC6E /* MyResourcesTableViewController.h */,
+				AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */,
+				AFFC4ACA1F9318950020AC6E /* DonateCollectionViewController.h */,
+				AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -405,12 +415,14 @@
 				91A63BDE1F91CED100D870B9 /* FirebaseStorage.swift in Sources */,
 				91A63BDF1F91CED100D870B9 /* DatabaseManager.swift in Sources */,
 				91B887F61F92A313002AB7EA /* UIView+Shadow.m in Sources */,
+				AFFC4AC91F9317F30020AC6E /* MyResourcesTableViewController.m in Sources */,
 				91DBE8DB1F9252310024EC05 /* ManagedViewController.swift in Sources */,
 				AF30911C1F91B93900FFEF97 /* RNLocation.m in Sources */,
 				91B0FD7F1F91AD74001ED35C /* AppDelegate.m in Sources */,
 				AF30912F1F91C23800FFEF97 /* ResourcesCollectionViewController.m in Sources */,
 				AF3091321F91C33800FFEF97 /* SearchTableViewController.m in Sources */,
 				AF3D4CF91F92B55200F0EB56 /* SearchResultsTableViewController.m in Sources */,
+				AFFC4ACC1F9318950020AC6E /* DonateCollectionViewController.m in Sources */,
 				91DBE8D91F92503D0024EC05 /* CPTextFieldManager.swift in Sources */,
 				AF3091221F91BB9000FFEF97 /* RNResource.m in Sources */,
 				AF30912B1F91C13600FFEF97 /* RNRecoveryArea.m in Sources */,
