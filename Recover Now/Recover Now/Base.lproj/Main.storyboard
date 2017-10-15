@@ -33,7 +33,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="aXz-nC-32L" customClass="CDCircularImageView">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="aXz-nC-32L" customClass="CDCircularImageView">
                                                     <rect key="frame" x="8" y="8" width="73.5" height="73.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="aXz-nC-32L" secondAttribute="height" multiplier="1:1" id="Kom-Kl-GvK"/>
@@ -365,7 +365,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ContactEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="oak-rD-JB5">
                                     <rect key="frame" x="332" y="36.5" width="35" height="35"/>
                                     <gestureRecognizers/>
                                     <constraints>
