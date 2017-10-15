@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateResourceTableViewController : UITableViewController
+@interface CreateResourceTableViewController : UITableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UIPickerView *typePicker;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+- (IBAction)onDoneButtonPress:(id)sender;
+- (IBAction)onCancelButtonPress:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+
 
 @end
