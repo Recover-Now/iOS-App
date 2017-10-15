@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F2705C4624897A0A01A4280 /* libPods-Recover Now.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */; };
+		917D3B311F92E14C00852961 /* ResourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 917D3B301F92E14C00852961 /* ResourceTableViewCell.m */; };
 		91A63BD21F91C64800D870B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */; };
 		91A63BDD1F91CED100D870B9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A63BD81F91CED000D870B9 /* FirebaseService.swift */; };
 		91A63BDE1F91CED100D870B9 /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A63BD91F91CED000D870B9 /* FirebaseStorage.swift */; };
@@ -50,6 +51,8 @@
 		1DDBA4C83B7F7345F3DF15EF /* Pods-Recover Now.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recover Now.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now.release.xcconfig"; sourceTree = "<group>"; };
 		28EA6ADBFABE3007E1C8A0F9 /* libPods-Recover Now.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recover Now.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA65EC7879340C0A671C94A /* Pods-Recover Now.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recover Now.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recover Now/Pods-Recover Now.debug.xcconfig"; sourceTree = "<group>"; };
+		917D3B2F1F92E14C00852961 /* ResourceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceTableViewCell.h; sourceTree = "<group>"; };
+		917D3B301F92E14C00852961 /* ResourceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceTableViewCell.m; sourceTree = "<group>"; };
 		91A63BD11F91C64800D870B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91A63BD71F91CED000D870B9 /* Recover Now-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recover Now-Bridging-Header.h"; sourceTree = "<group>"; };
 		91A63BD81F91CED000D870B9 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				AF2C26E11F929FEC0040B93C /* CollectionReusableView.m */,
 				AF2C26E01F929FEC0040B93C /* ResourceCollectionViewCell.h */,
 				AF2C26E41F929FED0040B93C /* ResourceCollectionViewCell.m */,
+				917D3B2F1F92E14C00852961 /* ResourceTableViewCell.h */,
+				917D3B301F92E14C00852961 /* ResourceTableViewCell.m */,
 				91B887F41F92A313002AB7EA /* UIView+Shadow.h */,
 				91B887F51F92A313002AB7EA /* UIView+Shadow.m */,
 			);
@@ -416,6 +421,7 @@
 				91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
 				AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */,
+				917D3B311F92E14C00852961 /* ResourceTableViewCell.m in Sources */,
 				91A63BE01F91CED100D870B9 /* FirebaseObjects.swift in Sources */,
 				AF2C26E91F929FED0040B93C /* ResourceCollectionViewCell.m in Sources */,
 			);

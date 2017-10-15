@@ -226,7 +226,6 @@ bool requestingLocation = false;
 
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat spacing = [self spacingForCells];
-    CGFloat height = self.collectionView.frame.size.height;
     CGFloat width = self.collectionView.frame.size.width;
     
     UIEdgeInsets insets = self.collectionView.contentInset;
@@ -234,8 +233,9 @@ bool requestingLocation = false;
 //        NSLog(@"Safe Area");
 //        insets = self.collectionView.safeAreaInsets;
 //    }
-
-    int numberOfCellsInRow = (int) width / 150;
+    
+    int preferredCellWidth = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 225 : 150;
+    int numberOfCellsInRow = (int) width / preferredCellWidth;
     CGFloat availableWidth = width - ((numberOfCellsInRow - 1) * spacing) - 15.0 - insets.left - insets.right;
     CGFloat singleCellWidth = availableWidth / ((CGFloat) numberOfCellsInRow);
     CGFloat singleCellHeight = singleCellWidth * 1.3;
@@ -243,7 +243,7 @@ bool requestingLocation = false;
 }
 
 -(CGFloat) spacingForCells {
-    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 32.0 : 20.0;
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 32.0 : 24.0;
 }
 
 
