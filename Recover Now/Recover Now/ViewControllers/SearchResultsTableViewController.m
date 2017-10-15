@@ -46,9 +46,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RNResource* resource = self.results[indexPath.row];
-    ResourceDetailTableViewController* detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVC"];
-    detailVC.resource = resource;
-    [self presentViewController:detailVC animated:true completion:nil];
+    UINavigationController* navVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVCNav"];
+    ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = resource;
+    [self presentViewController:navVC animated:true completion:nil];
 }
 
 
