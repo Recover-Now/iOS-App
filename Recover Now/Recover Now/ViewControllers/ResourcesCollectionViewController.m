@@ -137,6 +137,13 @@ bool requestingLocation = false;
     }];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toDetailNav"]) {
+        UINavigationController* navVC = segue.destinationViewController;
+        ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = self.resources[[self.collectionView indexPathForCell:(UICollectionViewCell*)sender].row];
+    }
+}
+
 #pragma mark <CLLocationManagerDelegate>
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -206,15 +213,6 @@ bool requestingLocation = false;
         reusable.profileImageView.layer.borderWidth = 0.0f;
     }
     return reusable;
-}
-
-#pragma mark <UICollectionViewDelegate>
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    RNResource* resource = [self.resources objectAtIndex:indexPath.row];
-    ResourceDetailTableViewController* detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVC"];
-    detailVC.resource = resource;
-    [self presentViewController:detailVC animated:true completion:nil];
 }
 
 

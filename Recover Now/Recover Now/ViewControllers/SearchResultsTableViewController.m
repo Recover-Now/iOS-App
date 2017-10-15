@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultsTableViewController.h"
+#import "ResourceDetailTableViewController.h"
 
 @interface SearchResultsTableViewController ()
 
@@ -41,6 +42,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.results.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    RNResource* resource = self.results[indexPath.row];
+    UINavigationController* navVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVCNav"];
+    ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = resource;
+    [self presentViewController:navVC animated:true completion:nil];
 }
 
 
