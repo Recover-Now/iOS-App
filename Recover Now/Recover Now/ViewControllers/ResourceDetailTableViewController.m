@@ -41,7 +41,7 @@ double distance = -1;
         self.navigationItem.title = self.resource.categoryDescription;
     }
     if (!self.shouldShowCloseButton) {
-        self.navigationItem.rightBarButtonItem = nil;
+        self.navigationItem.leftBarButtonItem = nil;
     }
     CLLocation* userLoc = [LocationManager currentCoordinateLocation];
     if ((self.resource.latitude != 0 || self.resource.longitude != 0) && userLoc) {
@@ -139,6 +139,19 @@ double distance = -1;
     } else {
         [self showSimpleAlert:@"Upgrade to iOS 11 to be able to check in via NFC tag." message:nil handler:nil];
     }
+}
+
+- (IBAction)onShareButtonPress:(id)sender {
+    UIActivityViewController* actVC = [[UIActivityViewController alloc] initWithActivityItems:@[[NSURL URLWithString:[NSString stringWithFormat:@"recovernow://resource/%@", self.resource.identifier]]] applicationActivities:nil];
+    NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
+                                    UIActivityTypePostToWeibo,
+                                    UIActivityTypeMail,
+                                    UIActivityTypePrint,
+                                    UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll,
+                                    UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
+                                    UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
+    actVC.excludedActivityTypes = excludedActivities;
+    [self presentViewController:actVC animated:true completion:nil];
 }
 
 -(void)readerSession:(NFCNDEFReaderSession *)session didDetectNDEFs:(NSArray<NFCNDEFMessage *> *)messages {

@@ -609,10 +609,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Housing" id="w6Y-tR-ssx">
-                        <barButtonItem key="rightBarButtonItem" title="Close" id="DYo-o6-CQO">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="DYo-o6-CQO">
                             <color key="tintColor" name="MainTint"/>
                             <connections>
                                 <action selector="onDonePressed:" destination="nKZ-cg-6U0" id="vgV-Sy-aJ2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="64F-Pe-IQd">
+                            <connections>
+                                <action selector="onShareButtonPress:" destination="nKZ-cg-6U0" id="Azp-QT-EET"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

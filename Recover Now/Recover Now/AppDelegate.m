@@ -10,6 +10,7 @@
 #import "RNUser.h"
 #import "Constants.h"
 #import "Recover_Now-Swift.h"
+#import "ResourceDetailTableViewController.h"
 @import Firebase;
 
 @interface AppDelegate ()
@@ -57,6 +58,24 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    NSLog(@"Opening URL %@", [url absoluteString]);
+    if ([[url host] isEqualToString:@"resources"]) {
+        NSString* identifier = [url pathComponents][0];
+        NSLog(@"Parsed identifier %@ from URL", identifier);
+        FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNResource];
+        [fbService retrieveDataForIdentifier:identifier completion:^(FirebaseObject * _Nonnull obj) {
+            RNResource* res = (RNResource*)obj;
+            UINavigationController* navVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"resourceDetailVCNav"];
+            navVC.modalPresentationStyle = UIModalPresentationPageSheet;
+            ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = res;
+            [self.window.rootViewController presentViewController:navVC animated:true completion:nil];
+        }];
+        return YES;
+    }
+    return NO;
 }
 
 
