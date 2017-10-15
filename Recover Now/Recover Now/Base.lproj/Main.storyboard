@@ -1140,6 +1140,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionTextView" destination="CE3-h8-mJG" id="Xv8-kG-sGz"/>
                         <outlet property="doneButton" destination="F10-qj-phP" id="lSx-nz-ALn"/>
                         <outlet property="titleTextField" destination="UmQ-dL-VV9" id="ZSi-Z7-ahx"/>
                         <outlet property="typePicker" destination="dF2-6c-cHH" id="qY3-EQ-NtP"/>
