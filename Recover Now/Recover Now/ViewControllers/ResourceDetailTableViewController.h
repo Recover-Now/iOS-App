@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <MessageUI/MessageUI.h>
 #import <CoreNFC/CoreNFC.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
 @interface ResourceDetailTableViewController : UITableViewController <MFMessageComposeViewControllerDelegate, NFCNDEFReaderSessionDelegate>
 

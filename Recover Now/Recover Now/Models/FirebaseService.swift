@@ -18,6 +18,7 @@ enum FirebaseEntity: String {
     case RNRecoveryArea
     case RNUserResourceList
     case RNUserRecoveryAreaList
+    case RNCheckIn
 }
 
 @objc class FirebaseService : NSObject {
@@ -118,7 +119,10 @@ enum FirebaseEntity: String {
             let pass = RNRecoveryArea(snapshot: snapshot)
             pass.identifier = snapshot.key
             return pass
-        
+        case .RNCheckIn:
+            let fake = RNRecoveryArea(snapshot: snapshot)
+            print("SHOULD NOT BE CONSTRUCTED")
+            return fake
         }
     }
 
