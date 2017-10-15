@@ -29,5 +29,6 @@
 -(IBAction)onDonePressed: (id)sender;
 -(IBAction)checkInPressed: (id)sender;
 - (IBAction)onShareButtonPress:(UIBarButtonItem*)sender;
+@property (weak, nonatomic) IBOutlet UIButton *checkInButton;
 
 @end

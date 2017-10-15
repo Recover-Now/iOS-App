@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class LoginViewController: ManagedViewController {
 
@@ -56,7 +57,15 @@ class LoginViewController: ManagedViewController {
             C.persistUsingUserDefaults(false, forKey: Shared.FIRST_LAUNCH_OF_APP_EVER)
         }*/
     }
-
+    
+    
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        let url = URL(string: "http://www.recovernowapp.com")!
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.modalPresentationStyle = .pageSheet
+        self.present(safariVC, animated: true, completion: nil)
+    }
+    
     
     
     //MARK: Sign-in & Account Creation ------------------------------------------ :

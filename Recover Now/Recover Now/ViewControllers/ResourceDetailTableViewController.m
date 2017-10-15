@@ -176,7 +176,7 @@ double distance = -1;
     }
     FirebaseService* service = [[FirebaseService alloc] initWithEntity:@"RNCheckIn"];
     [[[[service reference] child:areaIdentifier] child:[Accounts userIdentifier]] setValue: [Accounts userName]];
-    
+    self.checkInButton.currentTitle = @"You have checked in!"
 
 }
 
