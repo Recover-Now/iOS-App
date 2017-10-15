@@ -141,7 +141,7 @@ double distance = -1;
     }
 }
 
-- (IBAction)onShareButtonPress:(id)sender {
+- (IBAction)onShareButtonPress:(UIBarButtonItem*)sender {
     UIActivityViewController* actVC = [[UIActivityViewController alloc] initWithActivityItems:@[[NSURL URLWithString:[NSString stringWithFormat:@"recovernow://resource/%@", self.resource.identifier]]] applicationActivities:nil];
     NSArray *excludedActivities = @[UIActivityTypePostToTwitter, UIActivityTypePostToFacebook,
                                     UIActivityTypePostToWeibo,
@@ -151,6 +151,10 @@ double distance = -1;
                                     UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
                                     UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
     actVC.excludedActivityTypes = excludedActivities;
+    if (self.popoverPresentationController) {
+        self.popoverPresentationController.barButtonItem = sender;
+        self.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    }
     [self presentViewController:actVC animated:true completion:nil];
 }
 

@@ -27,6 +27,6 @@
 
 -(IBAction)onDonePressed: (id)sender;
 -(IBAction)checkInPressed: (id)sender;
-- (IBAction)onShareButtonPress:(id)sender;
+- (IBAction)onShareButtonPress:(UIBarButtonItem*)sender;
 
 @end
