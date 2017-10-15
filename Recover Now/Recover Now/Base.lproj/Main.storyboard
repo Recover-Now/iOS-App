@@ -484,15 +484,15 @@
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Z6M-A6-IgH">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" priority="999" constant="300" id="PNI-0S-XnF"/>
+                                                        <constraint firstAttribute="height" priority="750" constant="300" id="PNI-0S-XnF"/>
                                                     </constraints>
                                                 </mapView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Z6M-A6-IgH" firstAttribute="top" secondItem="2KA-AM-Vrq" secondAttribute="top" id="ELJ-XW-hg9"/>
-                                                <constraint firstAttribute="bottom" secondItem="Z6M-A6-IgH" secondAttribute="bottom" id="Xxv-29-3A5"/>
-                                                <constraint firstAttribute="trailing" secondItem="Z6M-A6-IgH" secondAttribute="trailing" id="bkD-45-fg3"/>
-                                                <constraint firstItem="Z6M-A6-IgH" firstAttribute="leading" secondItem="2KA-AM-Vrq" secondAttribute="leading" id="bxB-FA-rLX"/>
+                                                <constraint firstItem="Z6M-A6-IgH" firstAttribute="top" secondItem="2KA-AM-Vrq" secondAttribute="top" priority="750" id="ELJ-XW-hg9"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z6M-A6-IgH" secondAttribute="bottom" priority="750" id="Xxv-29-3A5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z6M-A6-IgH" secondAttribute="trailing" priority="750" id="bkD-45-fg3"/>
+                                                <constraint firstItem="Z6M-A6-IgH" firstAttribute="leading" secondItem="2KA-AM-Vrq" secondAttribute="leading" priority="750" id="bxB-FA-rLX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -564,6 +564,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descLabel" destination="7gE-Sn-ZnE" id="sri-Je-DJI"/>
+                        <outlet property="mapView" destination="Z6M-A6-IgH" id="dSO-Ly-bYP"/>
+                        <outlet property="phoneLabel" destination="fCi-JR-ZhL" id="4un-0F-Knw"/>
+                        <outlet property="providerLabel" destination="ghm-Qb-sdw" id="nfB-BT-Af9"/>
+                        <outlet property="titleLabel" destination="1im-AZ-cRW" id="mRF-Uo-rdA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crA-VV-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

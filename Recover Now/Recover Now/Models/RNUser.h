@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString* lastName;
 @property (strong, nonatomic) NSString* resourceListIdentifier;
 @property (strong, nonatomic) NSString* locationIdentifier;
+@property (strong, nonatomic) NSString* phoneNumber;
 @property (nonatomic) bool inNeed;
 @property (strong, nonatomic) NSData* imageData;
 
