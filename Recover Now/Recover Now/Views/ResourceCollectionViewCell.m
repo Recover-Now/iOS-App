@@ -22,7 +22,7 @@
     
     NSInteger categoryNum = resource.category;
     int rand = arc4random_uniform(2);
-    NSString* strRand = [NSString stringWithFormat:@"RN%i", rand];
+    NSString* strRand = [NSString stringWithFormat:@"RN%i%i", categoryNum, rand];
     self.imageView.image = [UIImage imageNamed:strRand];
     
     self.distanceLabel.text = @"—";

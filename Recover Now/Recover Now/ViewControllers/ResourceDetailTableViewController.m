@@ -152,9 +152,9 @@ double distance = -1;
                                     UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr,
                                     UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo];
     actVC.excludedActivityTypes = excludedActivities;
-    if (self.popoverPresentationController) {
-        self.popoverPresentationController.barButtonItem = sender;
-        self.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    if (actVC.popoverPresentationController) {
+        actVC.popoverPresentationController.barButtonItem = sender;
+        actVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
     }
     [self presentViewController:actVC animated:true completion:nil];
 }

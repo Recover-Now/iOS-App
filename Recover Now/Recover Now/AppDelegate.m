@@ -62,8 +62,8 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     NSLog(@"Opening URL %@", [url absoluteString]);
-    if ([[url host] isEqualToString:@"resources"]) {
-        NSString* identifier = [url pathComponents][0];
+    if ([[url host] isEqualToString:@"resource"]) {
+        NSString* identifier = [url pathComponents][1];
         NSLog(@"Parsed identifier %@ from URL", identifier);
         FirebaseService* fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNResource];
         [fbService retrieveDataForIdentifier:identifier completion:^(FirebaseObject * _Nonnull obj) {
