@@ -47,6 +47,7 @@
 		AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCD55AD1F92504C0097AE67 /* ResourceDetailTableViewController.m */; };
 		AFFC4AC91F9317F30020AC6E /* MyResourcesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */; };
 		AFFC4ACC1F9318950020AC6E /* DonateCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */; };
+		AFFC4ACF1F933A660020AC6E /* CreateResourceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFC4ACE1F933A660020AC6E /* CreateResourceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,8 @@
 		AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyResourcesTableViewController.m; sourceTree = "<group>"; };
 		AFFC4ACA1F9318950020AC6E /* DonateCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DonateCollectionViewController.h; sourceTree = "<group>"; };
 		AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DonateCollectionViewController.m; sourceTree = "<group>"; };
+		AFFC4ACD1F933A660020AC6E /* CreateResourceTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateResourceTableViewController.h; sourceTree = "<group>"; };
+		AFFC4ACE1F933A660020AC6E /* CreateResourceTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateResourceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,8 @@
 				AFFC4AC81F9317F30020AC6E /* MyResourcesTableViewController.m */,
 				AFFC4ACA1F9318950020AC6E /* DonateCollectionViewController.h */,
 				AFFC4ACB1F9318950020AC6E /* DonateCollectionViewController.m */,
+				AFFC4ACD1F933A660020AC6E /* CreateResourceTableViewController.h */,
+				AFFC4ACE1F933A660020AC6E /* CreateResourceTableViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				AF3091251F91BECF00FFEF97 /* RNUser.m in Sources */,
 				91A63BE11F91CED100D870B9 /* Accounts.swift in Sources */,
 				91DBE8D81F92503D0024EC05 /* CEViewController.swift in Sources */,
+				AFFC4ACF1F933A660020AC6E /* CreateResourceTableViewController.m in Sources */,
 				AF30911F1F91B9C100FFEF97 /* FirebaseObject.m in Sources */,
 				AFCD55AE1F92504C0097AE67 /* ResourceDetailTableViewController.m in Sources */,
 				917D3B311F92E14C00852961 /* ResourceTableViewCell.m in Sources */,
