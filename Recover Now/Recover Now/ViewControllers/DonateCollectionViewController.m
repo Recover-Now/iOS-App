@@ -15,16 +15,9 @@
 
 @implementation DonateCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
 }
@@ -56,10 +49,11 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    DonateTileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    DonateTileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"donateCell" forIndexPath:indexPath];
     
     // Configure the cell
-    [cell decorateCellWithID:indexPath.row];
+    [cell decorateCellWithID:(int)indexPath.row];
+    cell.myContainer = self;
     
     return cell;
 }
