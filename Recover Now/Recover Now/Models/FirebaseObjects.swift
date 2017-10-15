@@ -19,13 +19,13 @@ extension RNLocation {
 
 extension RNResource {
     override var dictionaryForm: [String: Any] {
-        return self.dictionaryWithValues(forKeys: ["title", "content", "poster", "category"])
+        return self.dictionaryWithValues(forKeys: ["title", "content", "poster", "category", "latitude", "longitude", "content"])
     }
 }
 
 extension RNRecoveryArea {
     override var dictionaryForm: [String: Any] {
-        return self.dictionaryWithValues(forKeys: ["title", "content", "poster", "category"])
+        return self.dictionaryWithValues(forKeys: ["title", "content", "poster", "category", "latitude", "longitude", "content"])
     }
 }
 
