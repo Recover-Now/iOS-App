@@ -18,12 +18,25 @@
 
 double distance = -1;
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        self.shouldShowCloseButton = true;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.titleLabel.text = self.resource.title;
     self.descLabel.text = self.resource.content;
     self.navigationItem.title = self.resource.categoryDescription;
+    if (!self.shouldShowCloseButton) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
     CLLocation* userLoc = [LocationManager currentCoordinateLocation];
     if ((self.resource.latitude != 0 || self.resource.longitude != 0) && userLoc) {
         [self.mapView setShowsUserLocation:true];
