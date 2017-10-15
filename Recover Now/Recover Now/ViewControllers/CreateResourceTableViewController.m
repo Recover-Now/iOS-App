@@ -56,6 +56,8 @@
         [fbService enterDataForIdentifier:resourceID data:res];
         fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
         [[[[fbService.reference child:locationKey] child:@"resources"] child:resourceID] setValue:@true];
+        fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNUserResourceList];
+        [fbService addChildDataForIdentifier:Accounts.userIdentifier key:resourceID value:@true];
         [self.presentingViewController dismissViewControllerAnimated:true completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameDidCreateResource object:nil];
         }];
@@ -73,6 +75,8 @@
         [fbService enterDataForIdentifier:resourceID data:recovery];
         fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNLocation];
         [[[[fbService.reference child:locationKey] child:@"recoveryAreas"] child:resourceID] setValue:@true];
+        fbService = [[FirebaseService alloc] initWithEntity:kFirebaseEntityRNUserRecoveryAreaList];
+        [fbService addChildDataForIdentifier:Accounts.userIdentifier key:resourceID value:@true];
         [self.presentingViewController dismissViewControllerAnimated:true completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameDidCreateResource object:nil];
         }];
