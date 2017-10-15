@@ -232,13 +232,8 @@ bool requestingLocation = false;
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat spacing = [self spacingForCells];
     CGFloat width = self.collectionView.frame.size.width;
-    
+        
     UIEdgeInsets insets = self.collectionView.contentInset;
-//    if (@available(iOS 11.0, *)) {
-//        NSLog(@"Safe Area");
-//        insets = self.collectionView.safeAreaInsets;
-//    }
-    
     int preferredCellWidth = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 225 : 150;
     int numberOfCellsInRow = (int) width / preferredCellWidth;
     CGFloat availableWidth = width - ((numberOfCellsInRow - 1) * spacing) - 15.0 - insets.left - insets.right;

@@ -9,6 +9,7 @@
 #import "ResourceDetailTableViewController.h"
 #import "LocationManager.h"
 #import "Recover_Now-Swift.h"
+#import "LocationManager.h"
 
 @interface ResourceDetailTableViewController ()
 
@@ -162,8 +163,21 @@ double distance = -1;
     NSLog(@"NFC Reading returned something!!");
     NFCNDEFPayload* message = [[[messages objectAtIndex:0] records] objectAtIndex:0];
     NSData* data = message.payload;
-    NSString* string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(string);
+    NSString* areaIdentifier = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if (!areaIdentifier) {
+        [self showSimpleAlert:@"Unsuccessful Tag Read" message:@"Try to read the tag again. Tags must be NDEF encoded." handler:nil];
+        return;
+    }
+    NSLog(areaIdentifier);
+    
+    if (![areaIdentifier isEqualToString:self.resource.identifier]) {
+        [self showSimpleAlert:@"Invalid Location" message:@"The tag read does not correspond to this Recovery Area location." handler:nil];
+            return;
+    }
+    FirebaseService* service = [[FirebaseService alloc] initWithEntity:@"RNCheckIn"];
+    [[[[service reference] child:areaIdentifier] child:[Accounts userIdentifier]] setValue: [Accounts userName]];
+    
+
 }
 
 -(void)readerSession:(NFCNDEFReaderSession *)session didInvalidateWithError:(NSError *)error {

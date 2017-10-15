@@ -19,9 +19,13 @@
     } else {
         self.typeLabel.text = resource.categoryDescription;
     }
-    self.imageView.image = [UIImage imageNamed:@"Water"];
-    self.distanceLabel.text = @"—";
     
+    NSInteger categoryNum = resource.category;
+    int rand = arc4random_uniform(2);
+    NSString* strRand = [NSString stringWithFormat:@"RN%i", rand];
+    self.imageView.image = [UIImage imageNamed:strRand];
+    
+    self.distanceLabel.text = @"—";
     CLLocation* userLocation = [LocationManager currentCoordinateLocation];
 
     if (resource.longitude && resource.latitude && userLocation) {
