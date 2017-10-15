@@ -28,6 +28,7 @@ DonateCollectionViewController* donateVC;
     [self addChildViewController:myResourcesVC];
     [self.embedView addSubview:myResourcesVC.view];
     [myResourcesVC didMoveToParentViewController:self];
+    self.navigationItem.title = @"Contributions";
     
     self.navigationItem.titleView = self.segmentControl;
     self.segmentControl.frame = self.navigationItem.titleView.frame;
@@ -59,6 +60,7 @@ DonateCollectionViewController* donateVC;
                 [donateVC removeFromParentViewController];
                 [myResourcesVC didMoveToParentViewController:self];
                 self.navigationItem.rightBarButtonItem = self.addButton;
+                self.navigationItem.title = @"Contributions";
             }];
         } else if (segmentedControl.selectedSegmentIndex == 1) {
             [myResourcesVC willMoveToParentViewController:nil];
@@ -70,6 +72,7 @@ DonateCollectionViewController* donateVC;
                 [myResourcesVC removeFromParentViewController];
                 [donateVC didMoveToParentViewController:self];
                 self.navigationItem.rightBarButtonItem = nil;
+                self.navigationItem.title = @"Donate";
             }];
             
         }
