@@ -12,9 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel* titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView* backgroundImageView;
+@property (weak, nonatomic) UIViewController* myContainer;
 
 - (IBAction)onDonateButtonPress:(id)sender;
 
-- (void)decorateCellWithID:(int)number;
+- (void)decorateCellWithID:(UIButton*)number;
 
 @end
