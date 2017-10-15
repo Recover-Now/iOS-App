@@ -8,6 +8,7 @@
 
 #import "SearchResultsTableViewController.h"
 #import "ResourceDetailTableViewController.h"
+#import "ResourceTableViewCell.h"
 
 @interface SearchResultsTableViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation SearchResultsTableViewController
 
-@synthesize results;
+@synthesize results, presentingController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,11 +45,16 @@
     return self.results.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60.0;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RNResource* resource = self.results[indexPath.row];
-    UINavigationController* navVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVCNav"];
-    ((ResourceDetailTableViewController*)navVC.viewControllers[0]).resource = resource;
-    [self presentViewController:navVC animated:true completion:nil];
+    UINavigationController* detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVC"];
+    ((ResourceDetailTableViewController*)detailVC).resource = resource;
+    [[self.presentingController navigationController] pushViewController:detailVC animated:true];
+    //[self presentViewController:navVC animated:true completion:nil];
 }
 
 
@@ -56,7 +62,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = self.results[indexPath.row].title;
+    [((ResourceTableViewCell *) cell) decorateForResource:self.results[indexPath.row]];
     
     return cell;
 }

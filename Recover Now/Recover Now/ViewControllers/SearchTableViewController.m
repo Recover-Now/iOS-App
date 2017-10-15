@@ -22,6 +22,8 @@
     [super viewDidLoad];
     
     SearchResultsTableViewController* searchResultsDisplay = [self.storyboard instantiateViewControllerWithIdentifier:@"searchResultsController"];
+    searchResultsDisplay.presentingController = self;   //Used for transitions later
+    
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsDisplay];
     self.definesPresentationContext = true;
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;

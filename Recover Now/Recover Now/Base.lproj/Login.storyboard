@@ -90,14 +90,14 @@
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rdd-XN-uCJ">
                                                 <rect key="frame" x="0.0" y="50.5" width="222" height="38"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <color key="textColor" red="0.1953030624" green="0.213791278" blue="0.26065358519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vx-OX-uHD" customClass="CDButton" customModule="Recover_Now" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="100.5" width="222" height="38.5"/>
@@ -226,7 +226,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="271" height="271"/>
+        <image name="Icon" width="512" height="512"/>
         <image name="Wallpaper" width="960" height="540"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@
 @interface ResourceTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet CDCircularImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resourceTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 - (void)decorateForResource: (RNResource*)resource;

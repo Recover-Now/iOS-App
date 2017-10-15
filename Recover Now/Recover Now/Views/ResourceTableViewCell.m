@@ -12,8 +12,8 @@
 @implementation ResourceTableViewCell
 
 - (void)decorateForResource: (RNResource*)resource {
-    self.titleLabel.text = resource.title;
-    self.descriptionLabel.text = resource.description;
+    self.descriptionLabel.text = resource.content;
+    self.resourceTitleLabel.text = resource.title;
     NSString* categoryName = resource.categoryDescription;
 }
 
