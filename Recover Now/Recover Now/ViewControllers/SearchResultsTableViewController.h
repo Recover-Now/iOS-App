@@ -12,5 +12,6 @@
 @interface SearchResultsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray<RNResource*>* results;
+@property (weak, nonatomic) UIViewController* presentingController;
 
 @end
