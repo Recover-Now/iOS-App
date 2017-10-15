@@ -552,7 +552,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Contact" id="GT2-H8-H40">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" textLabel="USl-uu-CRg" detailTextLabel="ghm-Qb-sdw" style="IBUITableViewCellStyleValue1" id="aSP-N7-2M7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="USl-uu-CRg" detailTextLabel="ghm-Qb-sdw" style="IBUITableViewCellStyleValue1" id="aSP-N7-2M7">
                                         <rect key="frame" x="0.0" y="695.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aSP-N7-2M7" id="sCn-Xp-Mqf">
@@ -890,6 +890,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="aax-Da-GcR">
+                            <rect key="frame" x="0.0" y="98" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="70" id="ebl-AG-5xf" customClass="ResourceTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
