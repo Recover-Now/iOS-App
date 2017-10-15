@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RNResource.h"
 #import <MapKit/MapKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ResourceDetailTableViewController : UITableViewController
+@interface ResourceDetailTableViewController : UITableViewController <MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) RNResource* resource;
 

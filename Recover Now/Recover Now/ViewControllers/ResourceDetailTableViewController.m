@@ -60,10 +60,33 @@ double distance = -1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 0 && distance == -1) {
+        return 0;
+    }
     return UITableViewAutomaticDimension;
 }
 
 -(IBAction)onDonePressed: (id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 2 && indexPath.row == 1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    if (![MFMessageComposeViewController canSendText]) {
+        [self showSimpleAlert:@"Error" message:@"This device is not capable of sending text messages" handler:nil];
+        return;
+    }
+    MFMessageComposeViewController* compose = [[MFMessageComposeViewController alloc] init];
+    compose.messageComposeDelegate = self;
+    [compose setRecipients:@[self.phoneLabel.text]];
+    [self presentViewController:compose animated:true completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
