@@ -14,6 +14,7 @@
 @interface ResourceDetailTableViewController : UITableViewController <MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) RNResource* resource;
+@property (nonatomic) bool shouldShowCloseButton;
 
 @property (nonatomic, weak) IBOutlet UILabel* titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel* descLabel;

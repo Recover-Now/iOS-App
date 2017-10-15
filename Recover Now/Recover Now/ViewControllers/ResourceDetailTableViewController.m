@@ -18,12 +18,25 @@
 
 double distance = -1;
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    
+    if (self) {
+        self.shouldShowCloseButton = true;
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.titleLabel.text = self.resource.title;
     self.descLabel.text = self.resource.content;
     self.navigationItem.title = self.resource.categoryDescription;
+    if (!self.shouldShowCloseButton) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
     CLLocation* userLoc = [LocationManager currentCoordinateLocation];
     if ((self.resource.latitude != 0 || self.resource.longitude != 0) && userLoc) {
         [self.mapView setShowsUserLocation:true];
@@ -63,6 +76,9 @@ double distance = -1;
     if (indexPath.section == 1 && indexPath.row == 0 && distance == -1) {
         return 0;
     }
+    if (indexPath.section == 1 && indexPath.row == 1 && ![self.resource isKindOfClass:[RNRecoveryArea class]]) {
+        return 0;
+    }
     return UITableViewAutomaticDimension;
 }
 
@@ -71,19 +87,23 @@ double distance = -1;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 2 && indexPath.row == 1;
+    return (indexPath.section == 1 || indexPath.section == 2) && indexPath.row == 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    if (![MFMessageComposeViewController canSendText]) {
-        [self showSimpleAlert:@"Error" message:@"This device is not capable of sending text messages" handler:nil];
-        return;
+    if (indexPath.section == 2) {
+        if (![MFMessageComposeViewController canSendText]) {
+            [self showSimpleAlert:@"Error" message:@"This device is not capable of sending text messages" handler:nil];
+            return;
+        }
+        MFMessageComposeViewController* compose = [[MFMessageComposeViewController alloc] init];
+        compose.messageComposeDelegate = self;
+        [compose setRecipients:@[self.phoneLabel.text]];
+        [self presentViewController:compose animated:true completion:nil];
+    } else if (indexPath.section == 1) {
+        
     }
-    MFMessageComposeViewController* compose = [[MFMessageComposeViewController alloc] init];
-    compose.messageComposeDelegate = self;
-    [compose setRecipients:@[self.phoneLabel.text]];
-    [self presentViewController:compose animated:true completion:nil];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {

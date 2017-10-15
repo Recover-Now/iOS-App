@@ -51,8 +51,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     RNResource* resource = self.results[indexPath.row];
-    UINavigationController* detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVC"];
-    ((ResourceDetailTableViewController*)detailVC).resource = resource;
+    ResourceDetailTableViewController* detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"resourceDetailVC"];
+    detailVC.resource = resource;
+    detailVC.shouldShowCloseButton = false;
     [[self.presentingController navigationController] pushViewController:detailVC animated:true];
     //[self presentViewController:navVC animated:true completion:nil];
 }
