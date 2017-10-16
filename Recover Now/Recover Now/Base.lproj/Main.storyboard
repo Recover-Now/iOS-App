@@ -1034,7 +1034,7 @@
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fet-B4-LpM">
-                                                    <rect key="frame" x="220" y="136" width="128" height="32"/>
+                                                    <rect key="frame" x="218" y="134" width="128" height="32"/>
                                                     <color key="backgroundColor" name="MainTint"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Fet-B4-LpM" secondAttribute="height" multiplier="4:1" id="okg-5u-AUK"/>
@@ -1065,9 +1065,9 @@
                                                 <constraint firstItem="3XC-wA-R3U" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="top" id="BVc-Xq-hPA"/>
                                                 <constraint firstAttribute="trailing" secondItem="kQ4-Pn-l2Q" secondAttribute="trailing" id="CNB-6c-3PT"/>
                                                 <constraint firstItem="kQ4-Pn-l2Q" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="top" id="OpT-eA-P66"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Fet-B4-LpM" secondAttribute="bottom" constant="10" id="PXD-DS-gyI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Fet-B4-LpM" secondAttribute="bottom" constant="12" id="PXD-DS-gyI"/>
                                                 <constraint firstItem="kQ4-Pn-l2Q" firstAttribute="leading" secondItem="s3W-9Y-JcI" secondAttribute="leading" id="Rob-Hi-7Hb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Fet-B4-LpM" secondAttribute="trailing" constant="10" id="U7D-jB-JdN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fet-B4-LpM" secondAttribute="trailing" constant="12" id="U7D-jB-JdN"/>
                                                 <constraint firstAttribute="trailing" secondItem="3XC-wA-R3U" secondAttribute="trailing" id="Vlp-W8-eMg"/>
                                                 <constraint firstItem="3XC-wA-R3U" firstAttribute="leading" secondItem="s3W-9Y-JcI" secondAttribute="leading" id="bxL-uJ-JJ5"/>
                                                 <constraint firstItem="efp-V4-Dqe" firstAttribute="top" secondItem="s3W-9Y-JcI" secondAttribute="topMargin" constant="10" id="eVd-b4-0h2"/>

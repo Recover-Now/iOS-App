@@ -21,10 +21,19 @@
     
     // Do any additional setup after loading the view.
     CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 24.0 : 16.0;
-    self.collectionView.contentInset = UIEdgeInsetsMake(inset, inset, inset, inset);
-    
+    self.collectionView.contentInset = UIEdgeInsetsMake(inset + 8.0, inset, inset, inset);
+    //Handle orientation change
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(orientationDidChange) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.collectionViewLayout invalidateLayout];
+}
+
+-(void) orientationDidChange {
+    [self.collectionViewLayout invalidateLayout];
+}
 
 /*
 #pragma mark - Navigation
