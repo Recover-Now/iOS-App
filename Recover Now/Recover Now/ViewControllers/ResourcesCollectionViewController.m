@@ -46,6 +46,10 @@ bool requestingLocation = false;
         }
     }];
     
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.dragDelegate = self;
+    }
+    
     CGFloat inset = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 24.0 : 16.0;
     self.collectionView.contentInset = UIEdgeInsetsMake(0.0, inset, inset, inset);
     
@@ -264,5 +268,17 @@ bool requestingLocation = false;
     return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? 36.0 : 24.0;
 }
 
+
+# pragma mark UICollectionViewDragDelegate
+
+- (NSArray<UIDragItem *> *)collectionView:(UICollectionView *)collectionView itemsForBeginningDragSession:(id<UIDragSession>)session atIndexPath:(NSIndexPath *)indexPath {
+    
+    NSURL* urlToShare = [NSURL URLWithString:[NSString stringWithFormat:@"recovernow://resource/%@", self.resources[indexPath.row].identifier]];
+    
+    NSItemProvider* itemProvider = [[NSItemProvider alloc] initWithContentsOfURL:urlToShare];
+    UIDragItem* dragItem = [[UIDragItem alloc] initWithItemProvider:itemProvider];
+    
+    return [[NSArray alloc] initWithObjects: dragItem, nil];
+}
 
 @end
